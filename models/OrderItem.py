@@ -7,23 +7,21 @@
 class OrderItem:
     
     
-    def __init__( self, id, itemld, quantity ):
+    def __init__( self, _id, itemld, quantity ):
        
-        if type(id) == str:
+        if type(_id) == str:
             
-            if id.isdigit() == True:
-                id = int(id)
-                if id in range( 1, 1_000_000 + 1 ):
-                    print( "Yep" )
-                    input("hit ...")
-                    self.id       = id
+            if _id.isdigit() == True:
+                _id = int(_id)
+                if _id in range( 1, 1_000_000 + 1 ):
+                    self._id       = _id
                 else:
                     raise ValueError( "id out of range" )
             else:
                 raise TypeError( "id can not be 'str'" )
-        if type(id) == int:
-            if id in range( 1, 1_000_000 + 1 ):
-                self.id       = id
+        if type(_id) == int:
+            if _id in range( 1, 1_000_000 + 1 ):
+                self.id       = _id
             else:
                 raise ValueError( "id out of range" )
 
