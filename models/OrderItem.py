@@ -1,7 +1,7 @@
 
 
 #OrderItem.py module
-
+from random import randint
 
 
 class OrderItem:
@@ -23,9 +23,5 @@ class OrderItem:
         return f"{self.id} -- {self.itemld} -- {self.quantity}"
 
     def __repr__ ( self ):
-        return f"{self.id} -- {self.itemld} -- {self.quantity}"
+        return self.__str__()
     
-
-
-
-
