@@ -3,30 +3,17 @@
 #OrderItem.py module
 
 
-
 class OrderItem:
     
-    
-    def __init__( self, _id, itemld, quantity ):
-       
-        if _id in range( 1, 1_000_000 + 1 ):
-            self.id = _id
+    def __init__( self, id, itemld, quantity ):
         
-        else:
-            raise ValueError( "id out of range" )
-
+        self.id       = id
         self.itemld   = itemld
         self.quantity = quantity
-
 
     def __str__( self ):
         return f"{self.id} -- {self.itemld} -- {self.quantity}"
 
     def __repr__ ( self ):
         return f"{self.id} -- {self.itemld} -- {self.quantity}"
-    
-def getRe():
-    pass
-
-
 
