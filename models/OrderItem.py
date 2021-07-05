@@ -25,12 +25,27 @@ class OrderItem:
     def __repr__ ( self ):
         return f"{self.id} -- {self.itemld} -- {self.quantity}"
     
-def OrderItemRepositoryFactory( name ):
-    
-    lastCreatedId = [0]
-    
-    obj = OrderItem( lastCreatedId[0] + 1, name, 35 )
-    lastCreatedId.append()
+
+
+def OrderItemRepositoryFactory( start, name ):
+    lastCreatedId = [start]
+    new_obj = OrderItem( lastCreatedId[0] + 1, name )
+    lastCreatedId.append( start + 1 )
+    print(lastCreatedId)
+    input("hit enter")
+    return new_obj
+
+def doManyObj( lastCreatedId[-1], start, end ):
+    for i in range( start, end):
+        return OrderItemRepositoryFactory( lastCreatedId[-1], "Soup" )
+
+
+
+
+
+
+
+
 
 
 
