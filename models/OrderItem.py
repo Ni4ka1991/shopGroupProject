@@ -19,9 +19,21 @@ class OrderItem:
         self.quantity = quantity
 
 
-    def __str__( self ):
+    def __str__(self):
         return f"{self.id} -- {self.itemld} -- {self.quantity}"
 
     def __repr__ ( self ):
         return self.__str__()
+
+
+
+class OrderItemRepositoryFactory:
     
+    def __init__( self ):
+        self.lastCreatedId = 0
+
+    def getOrderItem( self, _id,  itemld, quantity ):
+        obj = OrderItem( _id, itemld, quantity )
+        self.lastCreatedId += 1
+        obj._id = self.lastCreatedId
+        return obj  
