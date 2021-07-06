@@ -3,10 +3,18 @@
 from models.OrderItem import *
 from os import system
 
+#Make a factory
 
-orf1 = OrderItemRepositoryFactory()
+orf = OrderItemRepositoryFactory()
 
-oi1 = orf1.getOrderItem( 43016, "ZNATOK", 300 )
+#Create some products
+
+oi1 = orf.getOrderItem( "ZNATOK", 300 )
+oi2 = orf.getOrderItem( "DOLL",   450 )
+
+
+#view
 
 system ("clear")
 print(oi1)
+print(oi2)
