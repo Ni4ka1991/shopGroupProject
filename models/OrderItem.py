@@ -33,7 +33,7 @@ class OrderItemRepositoryFactory:
     
     def __init__( self ):
         self.lastCreatedId = 0
-        self.orderItems = []
+        self._orderItems = []
 
     def getOrderItem( self, itemld, quantity ):
         obj = OrderItem( id, itemld, quantity )
@@ -48,10 +48,35 @@ class OrderItemRepositoryFactory:
 #REPOSITORY METHODS ####################
 
     def save( self, orderItem ):
-        self.orderItems.append( orderItem )
+        self._orderItems.append( orderItem )
 
 
     def all( self ):
-        return self.orderItems
+        return self._orderItems
+
+    def findById( self, id ):
+        for i in self._orderItems:
+            if( i.id == id ):
+                return i
+        return None        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
