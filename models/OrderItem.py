@@ -7,21 +7,90 @@ from random import randint
 class OrderItem:
     
     
-    def __init__( self, _id, itemld, quantity ):
+    def __init__( self, _id, _itemld, _quantity ):
        
-        if _id in range( 1, 1_000_000 + 1 ):
-            self.id = _id
+#        if id in range( 0, 1_000_000 + 1 ):
+        self.setId( _id )
         
-        else:
-            raise ValueError( "id out of range" )
+#        else:
+#            raise ValueError( "id out of range" )
 
-        self.itemld   = itemld
-        self.quantity = quantity
+        self.setItemld( _itemld )
+        self.setQuantity( _quantity )
+    
+
+    def setId( self, id ):
+        self._id = id
+    
+    def getId( self, id ):
+        return self._id
 
 
-    def __str__( self ):
-        return f"{self.id} -- {self.itemld} -- {self.quantity}"
+    def setItemld( self, itemld ):
+        self._itemld = itemld
+
+    
+    def getItemld( self, itemld ):
+        return self._itemld
+
+    
+    
+    def setQuantity( self, quantity ):
+        self._quantity = quantity
+
+    
+    def getQuantity( self, quantity ):
+        return self._quantity
+
+    
+    
+    def __str__(self):
+        return f"{self._id:6} -- {self._itemld:12} -- {self._quantity}"
 
     def __repr__ ( self ):
         return self.__str__()
+
+class OrderItemRepositoryFactory:
+
+#FACTORY METHODS ####################
     
+    def __init__( self ):
+        self._lastCreatedId = 0
+        self._orderItems = []
+
+    def getOrderItem( self, itemld, quantity ):
+        obj = OrderItem( id, itemld, quantity )
+        self._lastCreatedId += 1
+        obj._id = self._lastCreatedId
+
+	#remember the obj ref in the list
+        self.save( obj )
+        return obj  
+
+
+#REPOSITORY METHODS ####################
+
+    def save( self, orderItem ):
+        self._orderItems.append( orderItem )
+
+
+    def all( self ):
+        return tuple(self._orderItems)
+
+    def findById( self, id ):
+        for i in self._orderItems:
+            if( i._id == id ):
+                return i
+        return None        
+
+
+
+
+
+
+
+
+
+
+
+
