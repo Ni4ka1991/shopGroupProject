@@ -11,6 +11,7 @@ orf = OrderItemRepositoryFactory()
 
 oi1 = orf.getOrderItem( "ZNATOK", 300 )
 oi2 = orf.getOrderItem( "DOLL",   450 )
+oi3 = orf.getOrderItem( "CAR",    1150 )
 
 
 #view
@@ -18,3 +19,5 @@ oi2 = orf.getOrderItem( "DOLL",   450 )
 system ("clear")
 print(oi1)
 print(oi2)
+print(oi3)
+print(orf.orderItems)

@@ -28,12 +28,30 @@ class OrderItem:
 
 
 class OrderItemRepositoryFactory:
+
+#FACTORY METHODS ####################
     
     def __init__( self ):
         self.lastCreatedId = 0
+        self.orderItems = []
 
     def getOrderItem( self, itemld, quantity ):
         obj = OrderItem( id, itemld, quantity )
         self.lastCreatedId += 1
         obj.id = self.lastCreatedId
+
+	#remember the obj ref in the list
+        self.save( obj )
         return obj  
+
+
+#REPOSITORY METHODS ####################
+
+    def save( self, orderItem ):
+        self.orderItems.append( orderItem )
+
+
+    def all( self ):
+        return self.orderItems
+
+
