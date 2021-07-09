@@ -36,6 +36,9 @@ class OrderItem:
     
     
     def setQuantity( self, quantity ):
+        if quantity <= 0:
+            raise ValueError( "Quantity can't be 0 or negative!" )
+        
         self._quantity = quantity
 
     
@@ -71,6 +74,9 @@ class OrderItemRepositoryFactory:
 #REPOSITORY METHODS ####################
 
     def save( self, orderItem ):
+        if orderItem in self._orderItems:
+            raise ValueError( "The same item is already in list!" )
+        
         self._orderItems.append( orderItem )
 
 
