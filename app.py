@@ -17,19 +17,7 @@ oi3 = orf.getOrderItem( "CAR",    1150 )
 #view
 
 system ("clear")
-#print(oi1)
-#print(oi2)
-#print(oi3)
 
-#print( orf._orderItems )
-p = orf.findById(3)
-p.setItemld("buka")
-p.setQuantity(1)
-p.setId(234)
-print(orderItems)
-#orf.save("ZNATOK")
-#print(orf.all())
+orf.save( "SPIDERMAN", 12 )
+print(orf.all())
 
-#print(f"Method all ---> {orf.all()}")
-#print(orf.findById(3))
-#print(orf.findById(1))

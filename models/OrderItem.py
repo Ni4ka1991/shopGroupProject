@@ -48,7 +48,7 @@ class OrderItem:
     
     
     def __str__(self):
-        return f"{self._id:6} -- {self._itemld:12} -- {self._quantity}"
+        return f"item id: {self._id:6}; {self._itemld:12} X {self._quantity}"
 
     def __repr__ ( self ):
         return self.__str__()
@@ -73,7 +73,7 @@ class OrderItemRepositoryFactory:
 
 #REPOSITORY METHODS ####################
 
-    def save( self, orderItem ):
+    def save( self, orderItem, quantity ):
         if orderItem in self._orderItems:
             raise ValueError( "The same item is already in list!" )
         
@@ -89,6 +89,11 @@ class OrderItemRepositoryFactory:
                 return i
         return None        
 
+    def findByItemld( self, itemld ):
+        for i in self._orderItems:
+            if( i._itemld == itemld ):
+                return i
+        return None        
 
 
 
