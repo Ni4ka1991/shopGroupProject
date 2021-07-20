@@ -96,11 +96,12 @@ class OrderItemRepositoryFactory:
         return None        
 
 
-    def deleteByItemld( self, id ):
+    def deleteById( self, id ):
         for i in self._orderItems:
             if( i._id == id ):
                 self._orderItems.remove( i )
         return None        
+
 
 
 
