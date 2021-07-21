@@ -18,6 +18,6 @@ oi3 = orf.getOrderItem( "CAR",    1150 )
 
 system ("clear")
 
-orf.save( "SPIDERMAN", 12 )
+orf.save( OrderItem( "SPIDERMAN", 12 ))
 print(orf.all())
 
