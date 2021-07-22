@@ -19,7 +19,7 @@ class Currency:
    
 
 
-class CurrencyService( self ):
+class CurrencyService:
     
-    def getCurrencies( self ):
-        pass
+    def getCurrencies( self, count = 10 ):
+        return []
