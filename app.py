@@ -5,7 +5,7 @@ from os import system
 from services.TestDataService import *
 from models.Money import *
 from models.Product import *
-
+from models.Currency import *
 #Make a factory
 
 orf = OrderItemRepositoryFactory()
@@ -26,7 +26,10 @@ system ("clear")
 
 #service initialization
 
-tds = TestDataService()
+#tds = TestDataService()
 
-products = tds.getTestProducts(3)
-print(products)
+#products = tds.getTestProducts(3)
+#print(products)
+
+curr = Currency(23, 806, 134, 1.2 )
+print( curr )

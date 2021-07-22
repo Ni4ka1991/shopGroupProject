@@ -1,9 +1,11 @@
 
-class Currency( self,  id, code, nominal, rate ):
-    self.id = id
-    self.code = code
-    self.nominal = nominal
-    self.rate = rate
+class Currency:
+    
+    def __init__(self, id, code, nominal, rate ):
+        self.id = id
+        self.code = code
+        self.nominal = nominal
+        self.rate = rate
 
     def __str__( self ):
         return f"\n "\
@@ -19,4 +21,5 @@ class Currency( self,  id, code, nominal, rate ):
 
 class CurrencyService( self ):
     
-    def getCurrencies( self ): 
+    def getCurrencies( self ):
+        pass
