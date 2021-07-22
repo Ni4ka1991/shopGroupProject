@@ -3,6 +3,8 @@
 from models.OrderItem import *
 from os import system
 from services.TestDataService import *
+from models.Money import *
+from models.Product import *
 
 #Make a factory
 
@@ -26,5 +28,5 @@ system ("clear")
 
 tds = TestDataService()
 
-products = tds.getTestProducts()
+products = tds.getTestProducts(3)
 print(products)

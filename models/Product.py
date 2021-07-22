@@ -1,3 +1,7 @@
+from .Money import *
+
+
+
 class Product:
     def __init__(self,id, name, price):
         self._id = id
@@ -31,8 +35,8 @@ class Product:
        
     def __str__(self):
         return f"\n " \
-               f"Product ID: {self.id}\n " \
-               f"Name:{self.name}\n" \
+               f"Product ID: {self._id}\n " \
+               f"Name:{self._name}\n" \
                f"Price:{self._price}\n"
                             
     def __repr__(self):
