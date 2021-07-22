@@ -2,6 +2,7 @@
 
 from models.OrderItem import *
 from os import system
+from services.TestDataService import *
 
 #Make a factory
 
@@ -18,6 +19,12 @@ oi3 = orf.getOrderItem( "CAR",    1150 )
 
 system ("clear")
 
-orf.save( OrderItem( "SPIDERMAN", 12 ))
-print(orf.all())
+#orf.save( OrderItem( "SPIDERMAN", 12 ))
+#print(orf.all())
 
+#service initialization
+
+tds = TestDataService()
+
+products = tds.getTestProducts()
+print(products)
