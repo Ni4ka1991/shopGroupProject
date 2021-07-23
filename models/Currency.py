@@ -1,3 +1,5 @@
+import requests
+from datetime import date
 
 class Currency:
     
@@ -22,4 +24,11 @@ class Currency:
 class CurrencyService:
     
     def getCurrencies( self, count = 10 ):
-        return []
+        today = date.today()
+        print( "waiting for server response ..." )
+        res = requests.get(f"https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}")
+        
+        if res.status_code == 200:
+            print("We get it!!!")
+        else:
+            raise Exception( "Connection Error!" )
