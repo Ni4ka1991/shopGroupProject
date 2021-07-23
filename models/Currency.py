@@ -1,5 +1,6 @@
 import requests
 from datetime import date
+import xml.etree.ElementTree as ET
 
 class Currency:
     
@@ -27,8 +28,11 @@ class CurrencyService:
         today = date.today()
         print( "waiting for server response ..." )
         res = requests.get(f"https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}")
-        
+        print(res)
         if res.status_code == 200:
-            print("We get it!!!")
+            pass
+#            f = open( "file.xml", "w" )
+#            f.write(res)
+#            f.close()
         else:
             raise Exception( "Connection Error!" )

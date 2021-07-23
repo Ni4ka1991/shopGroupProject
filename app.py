@@ -12,7 +12,11 @@ orf = OrderItemRepositoryFactory()
 
 #Create some products
 
+"""
+multistrring
+comments
 
+"""
 #view
 
 system ("clear")
