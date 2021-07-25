@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+      <!-- Request in bad format. New XML FEED  http://www.bnm.md/ro/official_exchange_rates?get_xml=1&date=DD.MM.YYYY !-->
+      <ValCurs Date="00.00.0000" name="Official exchange rate">
+      <Valute ID="44">
+        <NumCode>840</NumCode>
+        <CharCode>USD</CharCode>
+        <Nominal>0</Nominal>
+        <Name>US Dollar</Name>
+        <Value/>
+      </Valute>
+      <Valute ID="47">
+        <NumCode>978</NumCode>
+        <CharCode>EUR</CharCode>
+        <Nominal>0</Nominal>
+        <Name>Euro</Name>
+        <Value/>
+      </Valute>
+      </ValCurs>

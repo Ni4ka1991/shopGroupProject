@@ -26,4 +26,3 @@ cs = CurrencyService()
 #######################
 
 curency = cs.getCurrencies()
-print(curency)
