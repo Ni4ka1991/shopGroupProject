@@ -47,14 +47,15 @@ class CurrencyService:
             valute_CharCode = root.findall( "Valute/CharCode" )
             valute_Nominal  = root.findall( "Valute/Nominal" )
             valute_Value    = root.findall( "Valute/Value" )
-            print(valute_NumCode[0].text)            
-            print(valute_NumCode[1].text)            
+            
+            print(valute_Nominal[0].text)
+            print(valute_Value[0].text)
 
-#            for i in len(root):
-#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
-#            
-#            print(valute_objs)   
-#        else:
-#            raise Exception( "Connection Error!" )
+            for i in range( 0, len( valute_NumCode )):
+                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, int(valute_Nominal[i].text), valute_Value[i].text))
+            
+            print(valute_objs)   
+        else:
+            raise Exception( "Connection Error!" )
 #
 #        return valute_objs
