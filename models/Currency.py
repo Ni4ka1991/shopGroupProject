@@ -34,14 +34,19 @@ class CurrencyService:
         if res.status_code == 200:
             file_name = "file.xml"
             full_file = os.path.join( "data", file_name )
+
             if (os.path.exists( full_file ) == True):
                 os.remove( full_file )
             
             open(full_file, "wb").write(res.content)
             root = ET.parse(full_file)
-            valute_name = root.findall( "Valute/Name" )
-            for v in valute_name:
-                print( v.text )
+            
+            valute_code = root.findall( "Valute/NumCode" )
+            valute_code = root.findall( "Valute/NumCode" )
+            valute_code = root.findall( "Valute/NumCode" )
+            valute_code = root.findall( "Valute/NumCode" )
+            
+            for 
         else:
             raise Exception( "Connection Error!" )
 
