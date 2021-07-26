@@ -30,10 +30,14 @@ class CurrencyService:
         print( "waiting for server response ..." )
         url = "https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}"
         res = requests.get( url, allow_redirects = True )
+
         if res.status_code == 200:
-            open("data/file.xml", "wb").write(res.content)
             file_name = "file.xml"
             full_file = os.path.join( "data", file_name )
+            if (os.path.exists( full_file ) == True):
+                os.remove( full_file )
+            
+            open(full_file, "wb").write(res.content)
             root = ET.parse(full_file)
             valute_name = root.findall( "Valute/Name" )
             for v in valute_name:
