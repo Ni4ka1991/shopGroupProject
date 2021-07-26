@@ -48,11 +48,17 @@ class CurrencyService:
             valute_Nominal  = root.findall( "Valute/Nominal" )
             valute_Value    = root.findall( "Valute/Value" )
             
-            print(valute_Nominal[0].text)
-            print(valute_Value[0].text)
+            for v in root.findall("Valute"):
+                print( v.attrs.get( "type" ))
+ 
+#            print( valute_Value[0].attrs.get("type" ))
+            
+            print(type(valute_Nominal[0].text)) #class str
+            print(type(valute_Value[0].text))   #class NoneType
+            print()
 
             for i in range( 0, len( valute_NumCode )):
-                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, int(valute_Nominal[i].text), valute_Value[i].text))
+                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
             
             print(valute_objs)   
         else:
