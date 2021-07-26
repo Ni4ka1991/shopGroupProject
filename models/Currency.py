@@ -41,21 +41,19 @@ class CurrencyService:
             open(full_file, "wb").write(res.content)
             root = ET.parse(full_file)
             
-            valute_code = root.findall( "Valute/NumCode" )
-            valute_code = root.findall( "Valute/NumCode" )
-            valute_code = root.findall( "Valute/NumCode" )
-            valute_code = root.findall( "Valute/NumCode" )
+            valute_objs = []
             
-            for 
-        else:
-            raise Exception( "Connection Error!" )
+            valute_NumCode  = root.findall( "Valute/NumCode" )
+            valute_CharCode = root.findall( "Valute/CharCode" )
+            valute_Nominal  = root.findall( "Valute/Nominal" )
+            valute_Value    = root.findall( "Valute/Value" )
+            print(valute_NumCode)            
 
-
-
-
-
-
-
-
-
-
+#            for i in len(root):
+#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
+#            
+#            print(valute_objs)   
+#        else:
+#            raise Exception( "Connection Error!" )
+#
+#        return valute_objs
