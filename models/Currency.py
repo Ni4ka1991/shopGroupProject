@@ -39,14 +39,22 @@ class CurrencyService:
                 os.remove( full_file )
             
             open(full_file, "wb").write(res.content)
-            root = ET.parse(full_file)
-            
+            tree = ET.ElementTree( file = full_file )
+            root = tree.getroot()
             valute_objs = []
             
             valute_NumCode  = root.findall( "Valute/NumCode" )
             valute_CharCode = root.findall( "Valute/CharCode" )
             valute_Nominal  = root.findall( "Valute/Nominal" )
             valute_Value    = root.findall( "Valute/Value" )
+<<<<<<< HEAD
+=======
+            
+            
+            print(type(valute_Nominal[0].text)) #class str
+            print(type(valute_Value[0].text))   #class NoneType
+            print()
+>>>>>>> bdc1b53e9a02b0813acec4322577e0f9f2b09c77
 
             for i in range( 0, len( valute_NumCode )):
                 valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
