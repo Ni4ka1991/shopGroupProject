@@ -39,22 +39,23 @@ class CurrencyService:
                 os.remove( full_file )
             
             open(full_file, "wb").write(res.content)
-            tree = ET.ElementTree( file = full_file )
+            tree = ET.parse( full_file )
             root = tree.getroot()
+#            ET.dump(tree)
+#            print("#" * 23 )
             valute_objs = []
             
+            
+
             valute_NumCode  = root.findall( "Valute/NumCode" )
+
             valute_CharCode = root.findall( "Valute/CharCode" )
-            valute_Nominal  = root.findall( "Valute/Nominal" )
+            valute_Nominal  = root.find( "Valute/Nominal" )
             valute_Value    = root.findall( "Valute/Value" )
-<<<<<<< HEAD
-=======
-            
-            
-            print(type(valute_Nominal[0].text)) #class str
-            print(type(valute_Value[0].text))   #class NoneType
-            print()
->>>>>>> bdc1b53e9a02b0813acec4322577e0f9f2b09c77
+
+            print("#" * 23 )
+            print( valute_Nominal.text )
+            print("#" * 23 )
 
             for i in range( 0, len( valute_NumCode )):
                 valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
@@ -64,3 +65,7 @@ class CurrencyService:
             raise Exception( "Connection Error!" )
 
         return valute_objs
+
+
+
+
