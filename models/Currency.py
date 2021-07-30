@@ -27,8 +27,12 @@ class CurrencyService:
     
     def getCurrencies( self, count = 10 ):
         today = date.today()
+        print("#"* 30)
+        print(today)
+        print("#"* 30)
+        input("hit Enter...")
         print( "waiting for server response ..." )
-        url = "https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}"
+        url = "https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date=30.07.2021"
         res = requests.get( url, allow_redirects = True )
 
         if res.status_code == 200:
