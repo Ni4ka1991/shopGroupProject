@@ -44,27 +44,34 @@ class CurrencyService:
 #            ET.dump(tree)
 #            print("#" * 23 )
             valute_objs = []
+            print("#"* 30)
+            print(res.status_code)
+            print("#"* 30)
             
+
+#            valute_NumCode  = root.findall( "Valute/NumCode" )
+
+#            valute_CharCode = root.findall( "Valute/CharCode" )
+#            valute_Nominal  = root.find( "Valute/Nominal" )
+#            valute_Value    = root.findall( "Valute/Value" )
+
+#            print("#" * 23 )
+#            print( valute_Nominal.text )
+#            print("#" * 23 )
+
+            for elem in root.findall("./Valute/"):
+                print(elem.tag, " -- ", elem.text )
+
+
+
+#            for i in range( 0, len( valute_NumCode )):
+#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
             
-
-            valute_NumCode  = root.findall( "Valute/NumCode" )
-
-            valute_CharCode = root.findall( "Valute/CharCode" )
-            valute_Nominal  = root.find( "Valute/Nominal" )
-            valute_Value    = root.findall( "Valute/Value" )
-
-            print("#" * 23 )
-            print( valute_Nominal.text )
-            print("#" * 23 )
-
-            for i in range( 0, len( valute_NumCode )):
-                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
-            
-            print(valute_objs)   
+#            print(valute_objs)   
         else:
             raise Exception( "Connection Error!" )
 
-        return valute_objs
+#        return valute_objs
 
 
 
