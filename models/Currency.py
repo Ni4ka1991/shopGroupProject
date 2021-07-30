@@ -1,5 +1,5 @@
 import requests
-from datetime import date
+import datetime
 import xml.etree.ElementTree as ET
 import os
 
@@ -26,13 +26,10 @@ class Currency:
 class CurrencyService:
     
     def getCurrencies( self, count = 10 ):
-        today = date.today()
-        print("#"* 30)
-        print(today)
-        print("#"* 30)
-        input("hit Enter...")
+        date = datetime.datetime.now()
+        today = date.strftime("%d.%m.%Y")
         print( "waiting for server response ..." )
-        url = "https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date=30.07.2021"
+        url = f"https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}"
         res = requests.get( url, allow_redirects = True )
 
         if res.status_code == 200:
@@ -45,38 +42,28 @@ class CurrencyService:
             open(full_file, "wb").write(res.content)
             tree = ET.parse( full_file )
             root = tree.getroot()
-#            ET.dump(tree)
-#            print("#" * 23 )
             valute_objs = []
-            print("#"* 30)
-            print(res.status_code)
-            print("#"* 30)
             
 
-#            valute_NumCode  = root.findall( "Valute/NumCode" )
+            valute_NumCode  = root.findall( "Valute/NumCode" )
 
-#            valute_CharCode = root.findall( "Valute/CharCode" )
-#            valute_Nominal  = root.find( "Valute/Nominal" )
-#            valute_Value    = root.findall( "Valute/Value" )
+            valute_CharCode = root.findall( "Valute/CharCode" )
+            valute_Nominal  = root.find( "Valute/Nominal" )
+            valute_Value    = root.findall( "Valute/Value" )
 
-#            print("#" * 23 )
-#            print( valute_Nominal.text )
-#            print("#" * 23 )
 
-            for elem in root.findall("./Valute/"):
-                print(elem.tag, " -- ", elem.text )
+#            for elem in root.findall("./Valute/"):
+#                print(elem.tag, " -- ", elem.text )
 
 
 
-#            for i in range( 0, len( valute_NumCode )):
-#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
+            for i in range( 0, 3 ):
+                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
             
-#            print(valute_objs)   
+            print(valute_objs)   
         else:
             raise Exception( "Connection Error!" )
 
-#        return valute_objs
-
-
+        return valute_objs
 
 
