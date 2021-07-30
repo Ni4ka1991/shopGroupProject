@@ -45,25 +45,18 @@ class CurrencyService:
             valute_objs = []
             
 
-            valute_NumCode  = root.findall( "Valute/NumCode" )
-
-            valute_CharCode = root.findall( "Valute/CharCode" )
-            valute_Nominal  = root.find( "Valute/Nominal" )
-            valute_Value    = root.findall( "Valute/Value" )
-
-
-#            for elem in root.findall("./Valute/"):
-#                print(elem.tag, " -- ", elem.text )
+            for elem in root.findall("./Valute[@ID='47']/"):
+                print( elem.text )
 
 
 
-            for i in range( 0, 3 ):
-                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
+#            for i in range( 0, 3 ):
+#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
             
-            print(valute_objs)   
+#            print(valute_objs)   
         else:
             raise Exception( "Connection Error!" )
 
-        return valute_objs
+#        return valute_objs
 
 
