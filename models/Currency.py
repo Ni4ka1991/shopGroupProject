@@ -25,7 +25,7 @@ class Currency:
 
 class CurrencyService:
     
-    def getCurrencies( self, count = 10 ):
+    def getCurrencies( self, count = 20 ):
         date = datetime.datetime.now()
         today = date.strftime("%d.%m.%Y")
         print( "waiting for server response ..." )
@@ -43,20 +43,25 @@ class CurrencyService:
             tree = ET.parse( full_file )
             root = tree.getroot()
             valute_objs = []
+            doc_tree = []
             
-
             for elem in root.findall("./Valute[@ID='47']/"):
-                print( elem.text )
+                doc_tree.append(elem.tag)
 
-
-
-#            for i in range( 0, 3 ):
-#                valute_objs.append( Currency( valute_NumCode[i].text, valute_CharCode[i].text, valute_Nominal[i].text, valute_Value[i].text))
             
-#            print(valute_objs)   
+            for i in range( 0, 3 ):
+                valute_objs.append(\
+                        Currency(\
+                        (root.findall(f"./Valute/{doc_tree[0]}"))[i].text,\
+                        (root.findall(f"./Valute/{doc_tree[1]}"))[i].text,\
+                        (root.findall(f"./Valute/{doc_tree[2]}"))[i].text,\
+                        (root.findall(f"./Valute/{doc_tree[4]}"))[i].text)\
+                                )
+            print(valute_objs)
+   
         else:
             raise Exception( "Connection Error!" )
 
-#        return valute_objs
+        return valute_objs
 
 
