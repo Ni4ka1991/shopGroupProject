@@ -48,6 +48,8 @@ class CurrencyService:
             for elem in root.findall("./Valute[@ID='47']/"):
                 doc_tree.append(elem.tag)
 
+#    def getValue( self, tag, i ):
+#        root.findall(f"./Valute/{tag}"))[i].text
             
             for i in range( 0, 3 ):
                 valute_objs.append(\
