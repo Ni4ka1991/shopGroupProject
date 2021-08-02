@@ -6,9 +6,13 @@ from services.TestDataService import *
 from models.Money import *
 from models.Product import *
 from models.Currency import *
+from ui.index import *
+
+
+
 #Make a factory
 
-orf = OrderItemRepositoryFactory()
+#orf = OrderItemRepositoryFactory()
 
 #Create some products
 
@@ -21,8 +25,10 @@ comments
 
 system ("clear")
 
+
+printOptions( "e-SHOP", MAIN_MENU )
 #service initialization
-cs = CurrencyService()
+#cs = CurrencyService()
 #######################
 
-curency = cs.getCurrencies()
+#curency = cs.getCurrencies()
