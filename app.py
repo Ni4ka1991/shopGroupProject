@@ -10,25 +10,18 @@ from ui.index import *
 
 
 
-#Make a factory
-
-#orf = OrderItemRepositoryFactory()
-
-#Create some products
-
-"""
-multistrring
-comments
-
-"""
-#view
-
 system ("clear")
 
+while True:
 
-printOptions( "e-SHOP", MAIN_MENU )
-#service initialization
-#cs = CurrencyService()
-#######################
-
-#curency = cs.getCurrencies()
+    option = printOptions( "e-SHOP", MAIN_MENU ) #>>>> HW: need to do the check if printOption < max and > min
+    
+    if option == 1:
+        pass
+    if option == 2:
+        pass
+    
+    if option == 0:
+        print( "Thank you for using our app" )
+        break
+    
