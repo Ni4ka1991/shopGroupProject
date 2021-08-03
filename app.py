@@ -29,7 +29,16 @@ while True:
             if product != None:
                 quantity = int(input(f"How many \"{product.name}\" do you want? "))
                 #add to cart logic
-                order = orf.getOrder( [], 0,0,0 )
+                
+                
+                clientId = int( input( "Enter your client ID\n >>> " ))
+                order = orf.findByCustomerId( clientId )
+                
+                if order == None:
+                    order = orf.getOrder( [], 0, clientId, 0 ) 
+                
+                
+                
                 orderItem = oirf.getOrderItem( product.id, quantity )
                 order.addItem( orderItem._id )
                 print(order)

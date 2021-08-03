@@ -1,5 +1,5 @@
 class Order:
-    def __init__(self, _id, itemList, customerId, totalCost, paymentId):
+    def __init__( self, _id, itemList, totalCost, customerId, paymentId ):
         self.setId(_id)
         self.setItemList(itemList)
         self.setCustomerId(customerId)
@@ -82,9 +82,9 @@ class OrderRepositoryFactory:
         self._lastCreatedId = 0
         self._orders = []
 
-    def getOrder(self, itemList, customerId, totalCost, paymentId ):
+    def getOrder(self, itemList, totalCost, customerId, paymentId ):
         _id = 0
-        obj = Order(_id, itemList, customerId, totalCost, paymentId)
+        obj = Order(_id, itemList, totalCost, customerId, paymentId)
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
         self.save(obj)
@@ -102,12 +102,10 @@ class OrderRepositoryFactory:
                 return order
         return None
 
-    def findByCustomerId(self, customerId):
-        customerIdList = []
+    def findByCustomerId( self, customerId ):
         for order in self._orders:
             if order._customerId == customerId:
-                customerIdList.append(order)
-        return customerIdList
+                return order
 
     def deleteById(self, _id):
         for order in self._orders:
