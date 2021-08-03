@@ -27,7 +27,7 @@ class OrderItem:
 
 
     def setItemId( self, itemId ):
-        self._itemld = itemId
+        self._itemId = itemId
 
     
     def getItemId( self, itemId ):
