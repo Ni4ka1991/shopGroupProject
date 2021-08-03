@@ -2,6 +2,8 @@ import requests
 import datetime
 import xml.etree.ElementTree as ET
 import os
+from urllib import request
+
 
 class Currency:
     
@@ -30,8 +32,9 @@ class CurrencyService:
         today = date.strftime("%d.%m.%Y")
         print( "waiting for server response ..." )
         url = f"https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}"
+#        res = request.urlopen("https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}")
         res = requests.get( url, allow_redirects = True )
-
+#        print(res.peek())
         if res.status_code == 200:
             file_name = "file.xml"
             full_file = os.path.join( "data", file_name )

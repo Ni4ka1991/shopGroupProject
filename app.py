@@ -23,9 +23,16 @@ while True:
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to catr? (type y or n)\n >>> " )
         if answer == "y":
-            productId = input( "enter product id: >>>  " )
+            #product search logic
+            productId = int(input( "enter product id: >>>  " ))
             product = prf.findById( productId )
-            print ( product ) 
+            if product != None:
+                quantity = int(input(f"How many \"{product.name}\" do you want? "))
+                #add to cart logic
+                order = orf.getOrder( [], 0 )
+                orderItem = oirf.getOrderItem( product.id, quantity )
+                print(order)
+                print(orderItem)
         else:
             print( "ok" )
 
