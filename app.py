@@ -21,6 +21,14 @@ while True:
     if option == 1:
         prf.saveAll( tds.getTestProducts() )
         printItems( "Catalog of products", prf.all() )
+        answer = input( "\nAdd to catr? (type y or n)\n >>> " )
+        if answer == "y":
+            productId = input( "enter product id: >>>  " )
+            product = prf.findById( productId )
+            print ( product ) 
+        else:
+            print( "ok" )
+
     
     if option == 2:
         pass

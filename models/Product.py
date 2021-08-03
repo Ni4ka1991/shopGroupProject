@@ -65,5 +65,5 @@ class ProductRepositoryFactory:
 
     def findById(self,id):
         for p in self._products: 
-            if p.id==id:
+            if p._id == id:
                 return p
