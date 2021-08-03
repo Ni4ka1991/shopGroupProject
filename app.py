@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-import boot
+
+
+from boot import *
 from models.OrderItem import *
 from os import system
 from services.TestDataService import *
@@ -17,7 +19,9 @@ while True:
     option = printOptions( "e-SHOP", MAIN_MENU ) #>>>> HW: need to do the check if printOption < max and > min
     
     if option == 1:
-        pass
+        prf.saveAll( tds.getTestProducts() )
+        printItems( "Catalog of products", prf.all() )
+    
     if option == 2:
         pass
     

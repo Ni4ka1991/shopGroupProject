@@ -7,6 +7,8 @@ MAIN_MENU = {
     0 : "Exit"
 }
 
+
+
 def printOptions( title,  options ):
     print( f"\n{title}" )
     print( "*" * 12 )
@@ -16,3 +18,11 @@ def printOptions( title,  options ):
     option = int( input (">>  " ))
 
     return option
+
+
+def printItems( title,  items ):
+    print( f"\n{title}" )
+    print( "*" * 50 )
+    for item in items:
+        print( f"{item}" )    
+    print( "*" * 50 )

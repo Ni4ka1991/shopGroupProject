@@ -58,7 +58,7 @@ class ProductRepositoryFactory:
         self._products.append(product)
 
     def saveAll(self,products):
-        self._products=products
+        self._products = products
 
     def all(self):
         return tuple(self._products)
