@@ -15,6 +15,12 @@ class Order:
             raise ValueError("Item List is empty!")
         else:
             self._itemList = itemList
+    
+    def addItem( self, orderItemId ):
+        if type( orderItemId ) == None:
+            raise ValueError("Item cannot be empty!")
+        else:
+            self._itemList.append( orderItemId )
 
     def setCustomerId(self, customerId):
         if type(customerId) == int:

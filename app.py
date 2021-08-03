@@ -31,8 +31,9 @@ while True:
                 #add to cart logic
                 order = orf.getOrder( [], 0,0,0 )
                 orderItem = oirf.getOrderItem( product.id, quantity )
+                order.addItem( orderItem._id )
                 print(order)
-                print(orderItem)
+                print(orderItem._itemId )
         else:
             print( "ok" )
 

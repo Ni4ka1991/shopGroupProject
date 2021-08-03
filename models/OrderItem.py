@@ -7,7 +7,7 @@ from random import randint
 class OrderItem:
     
     
-    def __init__( self, _id, _itemld, _quantity ):
+    def __init__( self, _id, _itemId, _quantity ):
        
 #        if id in range( 0, 1_000_000 + 1 ):
         self.setId( _id )
@@ -15,7 +15,7 @@ class OrderItem:
 #        else:
 #            raise ValueError( "id out of range" )
 
-        self.setItemld( _itemld )
+        self.setItemId( _itemId )
         self.setQuantity( _quantity )
     
 
@@ -26,12 +26,12 @@ class OrderItem:
         return self._id
 
 
-    def setItemld( self, itemld ):
-        self._itemld = itemld
+    def setItemId( self, itemId ):
+        self._itemld = itemId
 
     
-    def getItemld( self, itemld ):
-        return self._itemld
+    def getItemId( self, itemId ):
+        return self._itemId
 
     
     
@@ -48,7 +48,7 @@ class OrderItem:
     
     
     def __str__(self):
-        return f"item id: {self._id:6}; {self._itemld:12} X {self._quantity}"
+        return f"item id: {self._id:6}; {self._itemId:12} X {self._quantity}"
 
     def __repr__ ( self ):
         return self.__str__()
@@ -61,8 +61,8 @@ class OrderItemRepositoryFactory:
         self._lastCreatedId = 0
         self._orderItems = []
 
-    def getOrderItem( self, itemld, quantity ):
-        obj = OrderItem( id, itemld, quantity )
+    def getOrderItem( self, itemId, quantity ):
+        obj = OrderItem( id, itemId, quantity )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
 
