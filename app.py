@@ -21,16 +21,17 @@ while True:
     if option == 1:
         prf.saveAll( tds.getTestProducts() )
         printItems( "Catalog of products", prf.all() )
-        answer = input( "\nAdd to catr? (type y or n)\n >>> " )
+        answer = input( "\nAdd to cart? (type y or n)\n >>> " )
+        
         if answer == "y":
             #product search logic
             productId = int(input( "enter product id: >>>  " ))
             product = prf.findById( productId )
             if product != None:
                 quantity = int(input(f"How many \"{product.name}\" do you want? "))
+                
+
                 #add to cart logic
-                
-                
                 clientId = int( input( "Enter your client ID\n >>> " ))
                 order = orf.findByCustomerId( clientId )
                 
@@ -51,6 +52,6 @@ while True:
         pass
     
     if option == 0:
-        print( "Thank you for using our app" )
+        print( "Thank you for using our app\n" )
         break
     
