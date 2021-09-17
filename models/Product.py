@@ -6,7 +6,7 @@ class Product:
     def __init__( self, id, name, price ):
         self.id = id
         self.name = name        
-        self.setPrice(price)
+        self.setPrice( price )
 
     def setId( self, id ):
         if type(id) != int:
@@ -28,10 +28,10 @@ class Product:
             
         if price.amount < 0:
             raise ValueError("Product's price cannot be negative!")
-        self.price = price
+        self._price = price
 
     def getPrice(self):
-        return self.price
+        return self._price
        
     def __str__(self):
         return f"\n " \
