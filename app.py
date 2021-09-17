@@ -27,6 +27,7 @@ while True:
             #product search logic
             productId = int(input( "enter product id: >>>  " ))
             product = prf.findById( productId )
+
             if product != None:
                 quantity = int(input(f"How many \"{product.name}\" do you want? "))
                 
@@ -44,6 +45,9 @@ while True:
                 order.addItem( orderItem._id )
                 print(order)
                 print(orderItem._itemId )
+            else:
+                system( "clear" )
+                print("\nYou entered missing code. Try again.")
         else:
             print( "ok" )
 
