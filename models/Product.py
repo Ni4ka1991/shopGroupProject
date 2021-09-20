@@ -3,13 +3,13 @@ from .Money import *
 
 
 class Product:
-    def __init__( self, id, name, price ):
+    def __init__( self, id, name, _price ):
         self.id = id
         self.name = name        
-        self.setPrice( price )
+        self.setPrice( _price )
 
     def setId( self, id ):
-        if type(id) != int:
+        if type( id ) != int:
             raise TypeError( "Id must be of type string" )
  
     def getId( self ):
@@ -30,16 +30,16 @@ class Product:
             raise ValueError("Product's price cannot be negative!")
         self._price = price
 
-    def getPrice(self):
+    def getPrice( self ):
         return self._price
        
-    def __str__(self):
+    def __str__( self ):
         return f"\n " \
                f"Product ID: {self.id}\n " \
                f"Name:{self.name}\n" \
-               f"Price:{self.price}\n"
+               f"Price:{self._price}\n"
                             
-    def __repr__(self):
+    def __repr__( self ):
         return str( self )
 
 class ProductRepositoryFactory:
@@ -48,14 +48,14 @@ class ProductRepositoryFactory:
         self._products=[]
 
     def getProduct( self, name, price):
-        obj=Product( id, name, price)
+        obj=Product( id, name, price )
         self._lastCreatedId += 1
         obj.id=self._lastCreatedId
         self.save(obj)
         return obj
 
     def save( self, product ):
-        self._products.append(product)
+        self._products.append( product )
 
     def saveAll(self,products):
         self._products = products
