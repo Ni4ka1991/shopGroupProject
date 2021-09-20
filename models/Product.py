@@ -3,9 +3,9 @@ from .Money import *
 
 
 class Product:
-    def __init__( self, _id, name, _price ):
+    def __init__( self, _id, _name, _price ):
         self.setId( _id )
-        self.name = name        
+        self.setName( _name )        
         self.setPrice( _price )
 
     def setId( self, id ):
@@ -17,11 +17,12 @@ class Product:
         return self._id
 
     def setName( self, name ):
-        if type(name) != str:
+        if type( name ) != str:
             raise TypeError( "Name must be of type string" )
- 
+        self._name = name
+
     def getName( self ):
-        return self.name
+        return self._name
 
     def setPrice( self, price ):
         if type( price ) != Money:
@@ -37,7 +38,7 @@ class Product:
     def __str__( self ):
         return f"\n " \
                f"Product ID: {self._id}\n " \
-               f"Name:{self.name}\n" \
+               f"Name:{self._name}\n" \
                f"Price:{self._price}\n"
                             
     def __repr__( self ):
