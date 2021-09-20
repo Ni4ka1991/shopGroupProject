@@ -25,11 +25,11 @@ while True:
         
         if answer == "y":
             #product search logic
-            productId = int(input( "Enter product id: >>>  " ))
+            productId = int( input( "Enter product id: >>>  " ))
             product = prf.findById( productId )
 
             if product != None:
-                quantity = int(input(f"How many \"{product._name}\" do you want? "))
+                quantity = int( input( f"How many \"{product._name}\" do you want? " ))
                 
 
                 #add to cart logic

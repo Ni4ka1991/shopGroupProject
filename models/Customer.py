@@ -1,43 +1,43 @@
+
+# Customer.py module
+
+
 class Customer:
-    def __init__(self, id, _firstName, _lastName, _addressId): 
-        self.__id = id
-        self.setFirstName (_firstName)
-        self.setLastName (_lastName)
-        self.setAddressId (_addressId)
+    def __init__( self, _id, _firstName, _lastName, _addressId ): 
+        self.setId( _id )
+        self.setFirstName ( _firstName )
+        self.setLastName ( _lastName )
+        self.setAddressId ( _addressId )
 
-    @property
-    def id(self):
-        return self.__id
+    def setId( self, id ):
+        self._id = id    
 
-    @id.setter
-    def id(self, id):
-        if id in range(1, 1000000):
-            self.__id = id
-        else:
-            raise ValueError ("Enter a range of values from 1 to 1 000 000")
-      
-    def setFirstName (self, _firstName):
-        if type(_firstName) is str:
-            self._firstName = _firstName
-        else:
-            raise TypeError ("Enter a First Name")
+    def getId( self, id ):
+        return self._id
 
-    def setLastName (self, _lastName):
-        if type(_lastName) is str:
-            self._lastName = _lastName
+ 
+    def setFirstName ( self, firstName ):
+        if type( firstName ) is str:
+            self._firstName = firstName
         else:
-            raise TypeError ("Enter a Last Name")
+            raise TypeError ( "Enter a First Name" ) 
+
+    def setLastName ( self, lastName ):
+        if type( lastName ) is str:
+            self._lastName = lastName
+        else:
+            raise TypeError ( "Enter a Last Name" )
         
-    def setAddressId (self, _addressId):
-        if type(_addressId) is str:
-            self._addressId = _addressId
+    def setAddressId ( self, addressId ):
+        if type( addressId ) is str:
+            self._addressId = addressId
         else:
-            raise TypeError ("Enter a adress ID")
+            raise TypeError ( "Enter a adress ID" )
     
-    def __str__(self):
-        return f"\nID customer: {self.__id}\nFirst name: {self._firstName}\nLast name: {self._lastName} \nAdress Id: {self._addressId}\n"
+    def __str__( self ):
+        return f"\nID customer: {self._id}\nFirst name: {self._firstName}\nLast name: {self._lastName} \nAdress Id: {self._addressId}\n"
     
-    def __repr__(self):
+    def __repr__( self ):
        return self.__str__()
 
 ############### 4 Repositories and Factories ##################
@@ -49,31 +49,31 @@ class CustomerRepositoryFactory:
 
 ############### Factory Method ####################
 
-    def getCustomer(self, _firstName, _lastName, _addressId): 
-        obj = Customer(id, _firstName, _lastName, _addressId) 
+    def getCustomer( self, firstName, lastName, addressId ): 
+        obj = Customer( id, firstName, lastName, addressId ) 
         self._lastCreatedId += 1
-        obj.id = self._lastCreatedId
+        obj._id = self._lastCreatedId
 
         # remember the obj ref in the list
-        self.save(obj)
+        self.save( obj )
         return obj
         
 ############### Reposytory Method #################
 
     # BREAD -> Browse, Read, Edit, Add, Delete
 
-    def save(self, customer):
-        self._customers.append(customer)
+    def save( self, customer ):
+        self._customers.append( customer )
 
-    def all(self):
-        return tuple(self._customers)
+    def all( self ):
+        return tuple( self._customers )
 
-    def findById(self, id):
+    def findByCustomerId( self, id ):
         for c in self._customers:
-            if c.id == id:
+            if c._id == id:
                 return c
             
-    def deleteById(self, id):
+    def deleteByCustomerId( self, id ):
         for customer in self._customers:
-            if customer.id == id:
-                self._customers.remove(customer)
+            if customer._id == id:
+                self._customers.remove( customer )
