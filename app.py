@@ -39,7 +39,7 @@ while True:
                 if order == None:
                     order = orf.getOrder( [], 0, clientId, 0 ) 
                 
-                orderItem = oirf.getOrderItem( product.id, quantity )
+                orderItem = oirf.getOrderItem( product._id, quantity )
                 order.addItem( orderItem._id )
                 print(order)
                 print(orderItem._itemId )
@@ -54,6 +54,7 @@ while True:
         pass
     
     if option == 0:
+        system( "clear" )
         print( "Thank you for using our app\n" )
         break
     

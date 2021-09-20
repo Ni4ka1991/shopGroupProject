@@ -3,17 +3,18 @@ from .Money import *
 
 
 class Product:
-    def __init__( self, id, name, _price ):
-        self.id = id
+    def __init__( self, _id, name, _price ):
+        self.setId( _id )
         self.name = name        
         self.setPrice( _price )
 
     def setId( self, id ):
         if type( id ) != int:
             raise TypeError( "Id must be of type string" )
+        self._id = id
  
     def getId( self ):
-        return self.id
+        return self._id
 
     def setName( self, name ):
         if type(name) != str:
@@ -35,7 +36,7 @@ class Product:
        
     def __str__( self ):
         return f"\n " \
-               f"Product ID: {self.id}\n " \
+               f"Product ID: {self._id}\n " \
                f"Name:{self.name}\n" \
                f"Price:{self._price}\n"
                             
@@ -50,7 +51,7 @@ class ProductRepositoryFactory:
     def getProduct( self, name, price):
         obj=Product( id, name, price )
         self._lastCreatedId += 1
-        obj.id=self._lastCreatedId
+        obj._id=self._lastCreatedId
         self.save(obj)
         return obj
 
@@ -65,5 +66,5 @@ class ProductRepositoryFactory:
 
     def findById( self, id ):
         for p in self._products: 
-            if p.id == id:
+            if p._id == id:
                 return p
