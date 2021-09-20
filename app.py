@@ -33,11 +33,11 @@ while True:
                 
 
                 #add to cart logic
-                clientId = int( input( "Enter your client ID\n >>> " ))
-                order = orf.findByCustomerId( clientId )
+                clientId = int( input( "Enter your client ID\n >>> " )) #13
+                order = orf.findByCustomerId( clientId ) # orderRepositoryFactory.findByCustomerId( 13 )
                 
-                if order == None:
-                    order = orf.getOrder( [], 0, clientId, 0 ) 
+                if order == None: 
+                    order = orf.getOrder( [], 0, clientId, 0 ) #get a new order
                 
                 orderItem = oirf.getOrderItem( product._id, quantity )
                 order.addItem( orderItem._id )
