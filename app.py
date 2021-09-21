@@ -37,12 +37,18 @@ while True:
                 order = orf.findByCustomerId( clientId ) # orderRepositoryFactory.findByCustomerId( 13 )
                 
                 if order == None: 
-                    order = orf.getOrder( [], 0, clientId, 0 ) #get a new order
-                
-                orderItem = oirf.getOrderItem( product._id, quantity )
-                order.addItem( orderItem._id )
-                print(order)
-                print(orderItem._itemId )
+                    order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
+                    orderItem = oirf.getOrderItem( product._id, quantity )
+                    order.addItem( orderItem._id )
+                    print(order)
+                    print(orderItem._itemId )
+                else:
+#                    order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
+#                    orderItem = oirf.getOrderItem( product._id, quantity )
+#                    order.addItem( orderItem._id )
+                    print( f"Customer nr. <{clientId}> ordered --> {order} " )
+                    print( f"You ordered inem with ID: { orderItem._itemId}" )
+                    
             else:
                 system( "clear" )
                 print("\nYou entered missing code. Try again.")
