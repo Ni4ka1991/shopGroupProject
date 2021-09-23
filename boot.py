@@ -1,7 +1,8 @@
 #executing module
 
 from services.TestDataService import *
-from models.Currency import *
+from services.CurrencyService import *
+#from models.Currency import *
 from models.Product import *
 from models.Order import *
 from models.OrderItem import *
@@ -14,6 +15,6 @@ oirf = OrderItemRepositoryFactory()
 
 #init services 
 tds = TestDataService()
-#c = Currency()
+cs = CurrencyService()
 
 

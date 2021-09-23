@@ -1,6 +1,6 @@
 
-
 #OrderItem.py module
+
 from random import randint
 
 
@@ -9,10 +9,15 @@ class OrderItem:
     
     def __init__( self, _id, _itemId, _quantity ):
        
-#        if id in range( 0, 1_000_000 + 1 ):
-        self.setId( _id )
+        if _id in range( 0, 1_000_000 + 1 ):
+            self.setId( _id )
         
-#        else:
+#        if _id == None:
+#            raise TypeError( "ID must be of type int" )
+        
+        else:
+            print( f"ID = {_id}" )
+            input("for continue press Enter")
 #            raise ValueError( "id out of range" )
 
         self.setItemId( _itemId )

@@ -38,23 +38,19 @@ while True:
                 
                 if order == None: 
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
-                    orderItem = oirf.getOrderItem( product._id, quantity )
-                    order.addItem( orderItem._id )
-                    system( "clear" )
-                    print( " Here you can see your order information vvv" )
-                    print(order)
-                    print(orderItem._itemId )
-                    print( "#" * 14 )
-                else:
-                    lastOrder = orf.save( order )
-#                    orderItem = oirf.getOrderItem( product._id, quantity )
-#                    order.addItem( orderItem._id )
-                    print( f"Customer nr. <{clientId}> ordered --> {lastOrder} " )
-                    print( f"You ordered item with ID: { orderItem._itemId}" )
+                orderItem = oirf.getOrderItem( product._id, quantity )
+                order.addItem( orderItem._id )
+                system( "clear" )
+                print( "Here you can see your order information vvv" )
+                print( f"Customer nr. < { clientId } > ordered:" )
+                print( order )
+                print( f" You ordered item with ID: { orderItem._itemId }" )
+                print( f" Quantity: { orderItem._quantity }" )
+                print( "#" * 14 )
                     
             else:
                 system( "clear" )
-                print("\nYou entered missing code. Try again.")
+                print( "\nYou entered missing code. Try again." )
         else:
             print( "ok" )
 
