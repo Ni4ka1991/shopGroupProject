@@ -41,11 +41,12 @@ while True:
                 orderItem = oirf.getOrderItem( product._id, quantity )
                 order.addItem( orderItem._id )
                 system( "clear" )
-                print( "Here you can see your order information vvv" )
+                print( "Here you can see your order information:\n" )
                 print( f"Customer nr. < { clientId } > ordered:" )
                 print( order )
-                print( f" You ordered item with ID: { orderItem._itemId }" )
-                print( f" Quantity: { orderItem._quantity }" )
+                print( orderItem )
+#                print( f" You ordered item with ID: { orderItem._itemId }" )
+#                print( f" Quantity: { orderItem._quantity }" )
                 print( "#" * 14 )
                     
             else:

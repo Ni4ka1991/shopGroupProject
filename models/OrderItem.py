@@ -53,7 +53,7 @@ class OrderItem:
     
     
     def __str__(self):
-        return f" item: {self._id:6}; itemId: {self._itemId:12} X {self._quantity}"
+        return f" Order Item Id: {self._id:6};\n Item Id: {self._itemId:10};\n Quantity: {self._quantity:10}"
 
     def __repr__ ( self ):
         return self.__str__()
@@ -70,6 +70,8 @@ class OrderItemRepositoryFactory:
         obj = OrderItem( id, itemId, quantity )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
+#        print( f"Object._id = {obj._id}" )
+#        input( "print Enter for continue ..." )
 
 	#remember the obj ref in the list
         self.save( obj )
