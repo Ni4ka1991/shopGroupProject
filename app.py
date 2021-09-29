@@ -39,8 +39,8 @@ while True:
 #                input( "hit Enter " )
                 if order == None: 
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
-                input( "hit Enter " )
-                
+#                input( "hit Enter " ) --- debugged up to this point
+                OrderItem( 2222 )
                 orderItem = oirf.getOrderItem( product._id, quantity )
                 print( f"{orderItem}" )
                 input( "hit Enter " )
@@ -69,4 +69,26 @@ while True:
         system( "clear" )
         print( "Thank you for using our app\n" )
         break
-    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
