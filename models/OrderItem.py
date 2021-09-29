@@ -1,6 +1,6 @@
 
-
 #OrderItem.py module
+
 from random import randint
 
 
@@ -9,10 +9,15 @@ class OrderItem:
     
     def __init__( self, _id, _itemId, _quantity ):
        
-#        if id in range( 0, 1_000_000 + 1 ):
-        self.setId( _id )
+        if _id in range( 0, 1_000_000 + 1 ):
+            self.setId( _id )
         
-#        else:
+#        if _id == None:
+#            raise TypeError( "ID must be of type int" )
+        
+        else:
+            print( f"ID = {_id}" )
+            input("for continue press Enter")
 #            raise ValueError( "id out of range" )
 
         self.setItemId( _itemId )
@@ -48,7 +53,7 @@ class OrderItem:
     
     
     def __str__(self):
-        return f" item: {self._id:6}; itemId: {self._itemId:12} X {self._quantity}"
+        return f" Order Item Id: {self._id:6};\n Item Id: {self._itemId:10};\n Quantity: {self._quantity:10}"
 
     def __repr__ ( self ):
         return self.__str__()
@@ -65,6 +70,8 @@ class OrderItemRepositoryFactory:
         obj = OrderItem( id, itemId, quantity )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
+#        print( f"Object._id = {obj._id}" )
+#        input( "print Enter for continue ..." )
 
 	#remember the obj ref in the list
         self.save( obj )

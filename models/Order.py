@@ -1,18 +1,18 @@
 class Order:
     def __init__( self, _id, itemList, totalCost, customerId, paymentId ):
-        self.setId(_id)
-        self.setItemList(itemList)
-        self.setCustomerId(customerId)
-        self.setTotalCost(totalCost)
-        self.setPaymentId(paymentId)
+        self.setId( _id )
+        self.setItemList( itemList )
+        self.setCustomerId( customerId )
+        self.setTotalCost( totalCost )
+        self.setPaymentId( paymentId )
 
-    def setId(self, _id):
-        if self.idValueCheck(_id):
-            self._id = _id
+    def setId( self, id ):
+        if self.idValueCheck(id):
+            self._id = id
 
-    def setItemList(self, itemList):
-        if type(itemList) == None:
-            raise ValueError("Item List is empty!")
+    def setItemList( self, itemList ):
+        if type( itemList ) == None:
+            raise ValueError( "Item List is empty!" )
         else:
             self._itemList = itemList
     
