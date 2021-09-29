@@ -46,8 +46,8 @@ while True:
                     print(orderItem._itemId )
                     print( "#" * 14 )
                 else:
-                    lastOrder = orf.save( order )
-#                    orderItem = oirf.getOrderItem( product._id, quantity )
+#                    
+                   orderItem = oirf.getOrderItem( product._id, quantity )
 #                    order.addItem( orderItem._id )
                     print( f"Customer nr. <{clientId}> ordered --> {lastOrder} " )
                     print( f"You ordered item with ID: { orderItem._itemId}" )
