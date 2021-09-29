@@ -38,21 +38,6 @@ while True:
                 
                 if order == None: 
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
-<<<<<<< HEAD
-                    orderItem = oirf.getOrderItem( product._id, quantity )
-                    order.addItem( orderItem._id )
-                    system( "clear" )
-                    print( " Here you can see your order information vvv" )
-                    print(order)
-                    print(orderItem._itemId )
-                    print( "#" * 14 )
-                else:
-#                    
-                   orderItem = oirf.getOrderItem( product._id, quantity )
-#                    order.addItem( orderItem._id )
-                    print( f"Customer nr. <{clientId}> ordered --> {lastOrder} " )
-                    print( f"You ordered item with ID: { orderItem._itemId}" )
-=======
                 orderItem = oirf.getOrderItem( product._id, quantity )
                 order.addItem( orderItem._id )
                 system( "clear" )
@@ -63,7 +48,6 @@ while True:
 #                print( f" You ordered item with ID: { orderItem._itemId }" )
 #                print( f" Quantity: { orderItem._quantity }" )
                 print( "#" * 14 )
->>>>>>> edade528549a4f606fb17bfa47a4413d431d1094
                     
             else:
                 system( "clear" )
