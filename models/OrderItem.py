@@ -67,7 +67,9 @@ class OrderItemRepositoryFactory:
         self._orderItems = []
 
     def getOrderItem( self, itemId, quantity ):
-        obj = OrderItem( id, itemId, quantity )
+        obj = OrderItem( _id, itemId, quantity )
+        print( obj.itemId )
+        input( "Press Enter to continue!!! >>>>>>  " )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
 #        print( f"Object._id = {obj._id}" )

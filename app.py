@@ -41,7 +41,7 @@ while True:
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
 #                input( "hit Enter " ) --- debugged up to this point
                 oi = OrderItem( 1234, product._id, quantity)
-                print(oi)
+                print( oi._id )
                 input( "hit Enter " )
                 orderItem = oirf.getOrderItem( product._id, quantity )
                 print( f"{orderItem}" )
