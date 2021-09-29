@@ -35,10 +35,16 @@ while True:
                 #add to cart logic
                 clientId = int( input( "Enter your client ID\n >>> " )) #13
                 order = orf.findByCustomerId( clientId ) # orderRepositoryFactory.findByCustomerId( 13 )
-                
+#                print( f"if client with id {clientId} exist? {order}" ) #-> None
+#                input( "hit Enter " )
                 if order == None: 
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
+                input( "hit Enter " )
+                
                 orderItem = oirf.getOrderItem( product._id, quantity )
+                print( f"{orderItem}" )
+                input( "hit Enter " )
+
                 order.addItem( orderItem._id )
                 system( "clear" )
                 print( "Here you can see your order information:\n" )
