@@ -16,8 +16,9 @@ class OrderItem:
 #            raise TypeError( "ID must be of type int" )
         
         else:
-            print( f"ID = {_id}" )
+            print( f"OrderItem ID aut of range 0 - 1_000_000. Print ID = {_id}" )
             input("for continue press Enter")
+#            self.setId( 0 )
 #            raise ValueError( "id out of range" )
 
         self.setItemId( _itemId )
@@ -68,7 +69,7 @@ class OrderItemRepositoryFactory:
 
     def getOrderItem( self, itemId, quantity ):
         obj = OrderItem( _id, itemId, quantity )
-        print( obj.itemId )
+        print( f"from module OrderItem.py {obj.itemId}" )
         input( "Press Enter to continue!!! >>>>>>  " )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
