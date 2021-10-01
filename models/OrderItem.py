@@ -25,10 +25,10 @@ class OrderItem:
         self.setQuantity( _quantity )
     
 
-    def setId( self, id ):
-        self._id = id
+    def setId( self, _id ):
+        self._id = _id
     
-    def getId( self, id ):
+    def getId( self, _id ):
         return self._id
 
 
@@ -68,9 +68,10 @@ class OrderItemRepositoryFactory:
         self._orderItems = []
 
     def getOrderItem( self, itemId, quantity ):
+        _id = 0
         obj = OrderItem( _id, itemId, quantity )
-        print( f"from module OrderItem.py {obj.itemId}" )
-        input( "Press Enter to continue!!! >>>>>>  " )
+#        print( f"from module OrderItem.py {obj.itemId}" )
+#        input( "Press Enter to continue!!! >>>>>>  " )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
 #        print( f"Object._id = {obj._id}" )

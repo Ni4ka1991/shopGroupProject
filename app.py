@@ -40,12 +40,12 @@ while True:
                 if order == None: 
                     order = orf.getOrder( [], 0, clientId, 0 ) #get a NEW order( [itemList], totalCost, customerId, paymentId )
 #                input( "hit Enter " ) --- debugged up to this point
-                oi = OrderItem( 123456, product._id, quantity ) # here control passed to module OrderItem.py -> crete object oi with _id = 123456
-                print( oi._id )
-                input( "control from module app.py hit Enter " ) # --- debugged. 
+#                oi = OrderItem( 123456, product._id, quantity ) # here control passed to module OrderItem.py -> crete object oi with _id = 123456
+#                print( oi._id )
+#                input( "control from module app.py hit Enter " ) # --- debugged. 
                 orderItem = oirf.getOrderItem( product._id, quantity )
-                print( f"{orderItem}" )
-                input( "hit Enter " )
+#                print( f"{orderItem}" )
+#                input( "hit Enter " )
 
                 order.addItem( orderItem._id )
                 system( "clear" )
