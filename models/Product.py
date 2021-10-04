@@ -29,7 +29,7 @@ class Product:
             raise TypeError( "Price must be of type Money!" )
             
         if price.amount < 0:
-            raise ValueError("Product's price cannot be negative!")
+            raise ValueError( "Product's price cannot be negative!" )
         self._price = price
 
     def getPrice( self ):
@@ -45,15 +45,15 @@ class Product:
         return str( self )
 
 class ProductRepositoryFactory:
-    def __init__(self):
+    def __init__( self ):
         self._lastCreatedId = 0
-        self._products=[]
+        self._products = []
 
-    def getProduct( self, name, price):
-        obj=Product( id, name, price )
+    def getProduct( self, name, price ):
+        obj = Product( id, name, price )
         self._lastCreatedId += 1
-        obj._id=self._lastCreatedId
-        self.save(obj)
+        obj._id = self._lastCreatedId
+        self.save( obj )
         return obj
 
     def save( self, product ):
@@ -62,7 +62,7 @@ class ProductRepositoryFactory:
     def saveAll(self,products):
         self._products = products
 
-    def all(self):
+    def all( self ):
         return tuple( self._products )
 
     def findById( self, id ):
