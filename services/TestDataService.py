@@ -1,3 +1,4 @@
+
 import requests 
 from models.Product import Product
 from models.Money import Money
@@ -8,14 +9,21 @@ class TestDataService:
         print( "waiting for server response ..." )
         res = requests.get(f"https://fakestoreapi.com/products?limit={count}")
         products = []
+        
+        if res.status_code == 200:
+#                                   .json method
+#                                     V
+            ##### Transformer ( json ---> {list of dictionaries [],[],[] } ---> extaction obj class Products one by one ---> create a list of obj-s #######            
 
-        data = res.json()
-        for item in data:
-            product = Product( item["id"], item["title"], Money( item["price"], "USD" ))
-            products.append(product)
+            data = res.json()
+            for item in data:
+                product = Product( item["id"], item["title"], Money( item["price"], "USD" ))
+                products.append(product)
 
-#        else:
-#            raise Exeption( "Connection error!" )
+            ##### Transformer ###########################            
+
+        else:
+            raise Exeption( "Connection error!" )
        
         return products
 
