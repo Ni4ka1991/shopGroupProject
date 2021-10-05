@@ -15,7 +15,9 @@ from ui.index import *
 
 system ("clear")
 
-
+cs = CurrencyService()
+currency = cs.getCurrencies()
+print(currency)
 
 
 
