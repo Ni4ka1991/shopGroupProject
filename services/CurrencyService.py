@@ -1,7 +1,7 @@
 import requests
 import datetime
 import xml.etree.ElementTree as ET
-import os
+from os import system
 from urllib import request
 
 class CurrencyService:
@@ -19,19 +19,15 @@ class CurrencyService:
         currencies = []
 
         if res.status_code == 200:
+            input( "hit Enter" )
             data = res.text
-            tree = ET.parse( data )
-            root = tree.getroot()
-
-            for i in range( 0, 3 ):
-                currencies.append(\
-                        Currency(\
-                        (root.findall(f"./Valute/{doc_tree[0]}"))[i].text,\
-                        (root.findall(f"./Valute/{doc_tree[1]}"))[i].text,\
-                        (root.findall(f"./Valute/{doc_tree[2]}"))[i].text,\
-                        (root.findall(f"./Valute/{doc_tree[4]}"))[i].text)\
-                                )
-              
+#            tree = ET.parse( data )
+#            ET.dump( tree )
+            root = ET.fromstring( data )
+#            system( "clear" )
+            print( "#" * 22 ) 
+            for elem in root.findall("."):
+                print( elem.tag )
  
         else:
             raise Exception( "Connection Error!" )
