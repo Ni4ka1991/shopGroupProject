@@ -28,10 +28,13 @@ class CurrencyService:
 #            system( "clear" )
             print( "#" * 22 ) 
             official_exchange_rate = {}
+            my_list = []
             for elem in root.findall( "./Valute/" ):
-                print( type( elem.tag ))
-                print(elem.text)
-                official_exchange_rate["{elem.tag}"] = "{elem.text}
+#                print( type( elem.tag ))
+#                my_list.append(elem.text)
+#                print( my_list )
+#                print(elem.text)
+                official_exchange_rate[elem.tag] = elem.text
                 print( official_exchange_rate )
                 input("hit Enter ...")
  
