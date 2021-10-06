@@ -1,3 +1,4 @@
+
 import requests
 import datetime
 import xml.etree.ElementTree as ET
@@ -10,7 +11,7 @@ class CurrencyService:
 
         ### get a usable format of date ## 
         date = datetime.datetime.now()
-        today = date.strftime("%d.%m.%Y")
+        today = date.strftime( "%d.%m.%Y" )
         ###____________________________ ## 
         
         print( "waiting for server response ..." )
@@ -26,8 +27,13 @@ class CurrencyService:
             root = ET.fromstring( data )
 #            system( "clear" )
             print( "#" * 22 ) 
-            for elem in root.findall("."):
-                print( elem.tag )
+            official_exchange_rate = {}
+            for elem in root.findall( "./Valute/" ):
+                print( type( elem.tag ))
+                print(elem.text)
+                official_exchange_rate["{elem.tag}"] = "{elem.text}
+                print( official_exchange_rate )
+                input("hit Enter ...")
  
         else:
             raise Exception( "Connection Error!" )
