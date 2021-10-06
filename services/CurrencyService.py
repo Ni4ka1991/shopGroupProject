@@ -15,29 +15,25 @@ class CurrencyService:
         ###____________________________ ## 
         
         print( "waiting for server response ..." )
-        url = f"https://www.bnm.md/ru/official_exchange_rates?get_xml=1&date={today}"
+        url = f"https://www.bnm.md/en/official_exchange_rates?get_xml=1&date={today}"
         res = requests.get( url )
         currencies = []
 
         if res.status_code == 200:
-            input( "hit Enter" )
             data = res.text
-#            tree = ET.parse( data )
-#            ET.dump( tree )
             root = ET.fromstring( data )
-#            system( "clear" )
-            print( "#" * 22 ) 
             official_exchange_rate = {}
             my_list = []
+            for elm in root.findall( "./"):
+                 my_list.append( elm.attrib )
+            print( my_list )
+
             for elem in root.findall( "./Valute/" ):
-#                print( type( elem.tag ))
-#                my_list.append(elem.text)
-#                print( my_list )
-#                print(elem.text)
+                print( f"{elem.tag} - {elem.text}" )
                 official_exchange_rate[elem.tag] = elem.text
                 print( official_exchange_rate )
-                input("hit Enter ...")
- 
+                input( "hit Enter" )
+             
         else:
             raise Exception( "Connection Error!" )
 
