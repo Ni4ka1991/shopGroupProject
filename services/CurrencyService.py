@@ -22,17 +22,21 @@ class CurrencyService:
         if res.status_code == 200:
             data = res.text
             root = ET.fromstring( data )
-            official_exchange_rate = {}
-            my_list = []
-            for elm in root.findall( "./"):
-                 my_list.append( elm.attrib )
-            print( my_list )
+#            official_exchange_rate = {}
+#            my_list = []
 
-            for elem in root.findall( "./Valute/" ):
-                print( f"{elem.tag} - {elem.text}" )
-                official_exchange_rate[elem.tag] = elem.text
-                print( official_exchange_rate )
-                input( "hit Enter" )
+      
+
+#            for elm in root.findall( "./Valute"):
+#                 print( elm.attrib )
+            ID = root.findall( "./Valute.tag" )
+            print( f"here you can see ID {ID}" )
+#
+#            for elem in root.findall( "./Valute/" ):
+#                print( f"{elem.tag} - {elem.text}" )
+#                official_exchange_rate[elem.tag] = elem.text
+#                print( official_exchange_rate )
+#                input( "hit Enter" )
              
         else:
             raise Exception( "Connection Error!" )
