@@ -24,16 +24,16 @@ class CurrencyService:
             root = ET.fromstring( data )
             my_dict = {}
 
-            my_list = []
+
+            ### create a list of external Id's #######
+            list_of_Id = []
             for elm in root.findall( "./Valute" ):
-                b = {}
-                b = elm.attrib
-                print( b.values() )
-                my_list.append( b.values() )
+                d = {}
+                d = elm.attrib
+                list_of_Id.append( d.get( 'ID' ) )
+            ### create a list of external Id's #######
 
-            print( my_list )
-            input( "hit Enter" )
-
+            print( list_of_Id[0] )
             official_exchange_rate_47 = {}
             for elm in root.findall( "./Valute[@ID='47']/"):
                 official_exchange_rate_47[elm.tag] = elm.text
