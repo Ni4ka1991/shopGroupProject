@@ -32,13 +32,16 @@ class CurrencyService:
                 d = elm.attrib
                 list_of_Id.append( d.get( 'ID' ) )
             ### create a list of external Id's #######
-
+            official_exchange_rate = {}
             for i in list_of_Id:
-                official_exchange_rate = {}
+                dic = {}
                 for elm in root.findall( f".Valute[@ID='{i}']/" ):
-                    official_exchange_rate[elm.tag] = elm.text
-                    print( official_exchange_rate )
-                    input( "hit Enter" )
+                    dic[elm.tag] = elm.text
+                
+                official_exchange_rate[i] = dic
+            print( official_exchange_rate )
+                
+            input( "hit Enter" )
 
              
         else:
