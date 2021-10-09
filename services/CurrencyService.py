@@ -22,8 +22,6 @@ class CurrencyService:
         if res.status_code == 200:
             data = res.text
             root = ET.fromstring( data )
-            my_dict = {}
-
 
             ### create a list of external Id's #######
             list_of_Id = []
@@ -32,6 +30,8 @@ class CurrencyService:
                 d = elm.attrib
                 list_of_Id.append( d.get( 'ID' ) )
             ### create a list of external Id's #######
+            
+            ### get a general dict of vatures sorted by id"
             official_exchange_rate = {}
             for i in list_of_Id:
                 dic = {}
@@ -39,9 +39,21 @@ class CurrencyService:
                     dic[elm.tag] = elm.text
                 
                 official_exchange_rate[i] = dic
-            print( official_exchange_rate )
-                
-            input( "hit Enter" )
+            ### get a general dict of vatures sorted by id"
+
+
+
+            for key in official_exchange_rate:
+#                print( key )
+                print( official_exchange_rate.get( key ) )
+
+
+
+
+
+
+
+
 
              
         else:
