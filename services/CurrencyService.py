@@ -33,25 +33,12 @@ class CurrencyService:
                 list_of_Id.append( d.get( 'ID' ) )
             ### create a list of external Id's #######
 
-            print( list_of_Id[0] )
-            official_exchange_rate_47 = {}
-            for elm in root.findall( "./Valute[@ID='47']/"):
-                official_exchange_rate_47[elm.tag] = elm.text
-#            print( official_exchange_rate_47 )
-            
-#            print( "#" * 22 )
-#
-            official_exchange_rate_44 = {}
-            for elm in root.findall( "./Valute[@ID='44']/"):
-                official_exchange_rate_44[elm.tag] = elm.text
-#            print( official_exchange_rate_44 )
-
-            my_dict["47"] = official_exchange_rate_47
-
-            my_dict["44"] = official_exchange_rate_44
-            print(my_dict)
-
-
+            for i in list_of_Id:
+                official_exchange_rate = {}
+                for elm in root.findall( f".Valute[@ID='{i}']/" ):
+                    official_exchange_rate[elm.tag] = elm.text
+                    print( official_exchange_rate )
+                    input( "hit Enter" )
 
              
         else:
