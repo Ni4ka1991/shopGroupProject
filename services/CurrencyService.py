@@ -4,6 +4,8 @@ import datetime
 import xml.etree.ElementTree as ET
 from os import system
 from urllib import request
+from models.Currency import *
+
 
 class CurrencyService:
     
@@ -41,21 +43,16 @@ class CurrencyService:
                 official_exchange_rate[i] = dic
             ### get a general dict of vatures sorted by id"
 
-
-
+            ### get a final view of valutes data ###
+            valute = []
             for key in official_exchange_rate:
-#                print( key )
-                print( official_exchange_rate.get( key ) )
+                dic = {}
+                dic = official_exchange_rate.get( key )
+                valute = Currency( key, dic.get( 'NumCode' ), dic.get( 'Nominal' ), dic.get( 'Value' ))
+                currencies.append( valute )
+            ### get a final view of valutes data ###
 
 
-
-
-
-
-
-
-
-             
         else:
             raise Exception( "Connection Error!" )
 

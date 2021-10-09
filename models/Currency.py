@@ -2,7 +2,7 @@
 
 class Currency:
     
-    def __init__(self, _id, _code, _nominal, rate ):
+    def __init__(self, _id, _code, _nominal, _rate ):
         
         self.setId     ( _id )
         self.setCode   ( _code )
@@ -39,9 +39,9 @@ class Currency:
     def __str__( self ):
         return f"\n "\
         f"id:      {self._id}\n"\
-        f"code:    {self._code}\n"\
-        f"nominal: {self._nominal}\n"\
-        f"rate:    {self._rate}"
+        f"Code:    {self._code}\n"\
+        f"Nominal: {self._nominal}\n"\
+        f"Rate:    {self._rate}"\
     
     def __repr__( self ):
         return self.__str__()   
