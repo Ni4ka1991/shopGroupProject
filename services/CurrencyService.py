@@ -24,7 +24,16 @@ class CurrencyService:
             root = ET.fromstring( data )
             my_dict = {}
 
-      
+            my_list = []
+            for elm in root.findall( "./Valute" ):
+                b = {}
+                b = elm.attrib
+                print( b.values() )
+                my_list.append( b.values() )
+
+            print( my_list )
+            input( "hit Enter" )
+
             official_exchange_rate_47 = {}
             for elm in root.findall( "./Valute[@ID='47']/"):
                 official_exchange_rate_47[elm.tag] = elm.text
