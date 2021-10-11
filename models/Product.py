@@ -45,6 +45,7 @@ class Product:
         return str( self )
 
 class ProductRepositoryFactory:
+
     def __init__( self ):
         self._lastCreatedId = 0
         self._products = []

@@ -19,7 +19,8 @@ while True:
     option = printOptions( "e-SHOP", MAIN_MENU ) #>>>> HW: need to do the check if printOption < max and > min
     
     if option == 1:
-        prf.saveAll( tds.getTestProducts() )
+        prf.getProduct() #try to change logic for optional parameters
+#        prf.saveAll( tds.getTestProducts() )
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
         
