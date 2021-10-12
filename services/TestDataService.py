@@ -1,4 +1,4 @@
-
+from random import randint
 import requests 
 from models.Product import Product
 from models.Money import Money
@@ -29,7 +29,19 @@ class TestDataService:
 
     def createTestProducts( self, count = 20 ):
         products = {}
-        products["bla -bla-bla"] = 234
-        products["bu-bu-bu"] = 568
-        products["dump-dump"] = 456 
-        return products
+
+        company = [ "Samsung", "Nokia", "Apple", "Lenovo", "Huawei", "Motorola" ]
+        model = [ "Galaxy", "Cityman", "Talkman", "Senator", "Actionman", "Vibe", "Phab", "RocStar" ] 
+        series = [ "A", "B", "C", "D", "E", "F", "K", "Z", "W" ]        
+        
+        def combinator( ):
+            prod = company[ randint( 0, len( company ) - 1 ) ] + " " +\
+                   model[ randint( 0, len( model ) - 1 ) ] + " " +\
+                   series[ randint( 0, len( series ) - 1 ) ] +\
+                   str( randint( 201, 1034 )) 
+            return prod      
+        
+#        p =  combinator()
+        return combinator()
+
+
