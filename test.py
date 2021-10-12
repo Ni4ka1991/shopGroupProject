@@ -16,7 +16,7 @@ from ui.index import *
 system ("clear")
 
 tds = TestDataService()
-dic = tds.createTestProducts()
+dic = tds.createTestProducts( :)
 print(dic)
 
 
