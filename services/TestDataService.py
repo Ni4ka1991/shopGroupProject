@@ -4,6 +4,7 @@ import requests
 from models.Product import Product
 from models.Money import Money
 
+
 class TestDataService:
     
     def getTestProducts( self, count = 20 ):
@@ -33,18 +34,12 @@ class TestDataService:
         file = open( f"./data/{fileName}.json", "r" )
         data = json.loads( file.read() )
 
-#        company = [ "Samsung", "Nokia", "Apple", "Lenovo", "Huawei", "Motorola" ]
-#        model = [ "Galaxy", "Cityman", "Talkman", "Senator", "Actionman", "Vibe", "Phab", "RocStar" ] 
-#        series = [ "A", "B", "C", "D", "E", "F", "K", "Z", "W" ]        
+        def combinator( data ):
+            prod = data.get( 'company' )[ randint( 0, len( company ) - 1 ) ] + " " +\
+                   data.get( 'model' )[ randint( 0, len( model ) - 1 ) ] + " " +\
+                   data.get( 'series' )[ randint( 0, len( series ) - 1 ) ] +\
+                   str( randint( 201, 1034 )) 
+            return prod      
         
-#        def combinator( ):
-#            prod = company[ randint( 0, len( company ) - 1 ) ] + " " +\
-#                   model[ randint( 0, len( model ) - 1 ) ] + " " +\
-#                   series[ randint( 0, len( series ) - 1 ) ] +\
-#                   str( randint( 201, 1034 )) 
-#            return prod      
-        
-#        p =  combinator()
-#        return combinator()
-        return data
+        return combinator( data )
 
