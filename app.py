@@ -19,6 +19,7 @@ while True:
     option = printOptions( "e-SHOP", MAIN_MENU ) #>>>> HW: need to do the check if printOption < max and > min
     
     if option == 1:
+        products = { '': 345 }
         prf.getProduct() #try to change logic for optional parameters
 #        prf.saveAll( tds.getTestProducts() )
         printItems( "Catalog of products", prf.all() )

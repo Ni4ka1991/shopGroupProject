@@ -15,9 +15,9 @@ from ui.index import *
 
 system ("clear")
 
-cs = CurrencyService()
-currency = cs.getCurrencies()
-print(currency)
+tds = TestDataService()
+dic = tds.createTestProducts()
+print(dic)
 
 
 

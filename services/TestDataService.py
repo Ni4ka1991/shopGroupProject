@@ -27,4 +27,9 @@ class TestDataService:
        
         return products
 
-
+    def createTestProducts( self, count = 20 ):
+        products = {}
+        products["bla -bla-bla"] = 234
+        products["bu-bu-bu"] = 568
+        products["dump-dump"] = 456 
+        return products
