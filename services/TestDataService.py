@@ -32,43 +32,32 @@ class TestDataService:
     def createTestProducts( self, fileName, count = 20 ):
 
         products = []
-
+        
+        ## load data #######
         file = open( f"./data/{fileName}.json", "r" )
         data = json.loads( file.read() )
+        ## load data #######
 
-
+        ## make a random combination of lists ###
         def combinator( data ):
+            ### readable view ####
             companies = data.get( 'company')
             models    = data.get( 'model' )
             series    = data.get( 'series' )
-
-#            prod = companies[ randint( 1, 6 ) ] + " " +\
-#                   models   [ randint( 1, 5 ) ] + " " +\
-#                   series   [ randint( 1, 8 ) ] +\
-#                   str( randint( 201, 1034 ))
-#            return prod     
-
+            ### readable view ####
+            
+            ### combinator ###
             prod = companies[ randint( 0, ( len( companies )  - 1 ) ) ] + " " +\
-                   models   [1] + " " +\
-                   series   [2] +\
+                   models   [ randint( 0, ( len( models ) - 1 ) ) ] + " " +\
+                   series   [ randint( 0, ( len( series ) - 1 ) ) ] + " " +\
                    str( randint( 201, 1034 ))
             return prod     
+            ### combinator ###
 
-
-#        for i in range( 0, 20 ):        
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-        products.append( combinator( data ) )
-
+        ## make a required count of products ###
+        for i in range( 0, count ):        
+            products.append( combinator( data ) )
+        ## make a required count of products ###
 
         return products
 
