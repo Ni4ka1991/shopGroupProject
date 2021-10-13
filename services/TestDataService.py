@@ -42,14 +42,24 @@ class TestDataService:
             models    = data.get( 'model' )
             series    = data.get( 'series' )
 
+#            prod = companies[ randint( 1, 6 ) ] + " " +\
+#                   models   [ randint( 1, 5 ) ] + " " +\
+#                   series   [ randint( 1, 8 ) ] +\
+#                   str( randint( 201, 1034 ))
+#            return prod     
 
-            prod = companies[ randint( 0, 8 ) ] + " " +\
-                   models   [ randint( 0, 8 ) ] + " " +\
-                   series   [ randint( 0, 8 ) ] +\
+            prod = companies[ randint( 0, ( len( companies )  - 1 ) ) ] + " " +\
+                   models   [1] + " " +\
+                   series   [2] +\
                    str( randint( 201, 1034 ))
             return prod     
 
+
 #        for i in range( 0, 20 ):        
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
         products.append( combinator( data ) )
         products.append( combinator( data ) )
         products.append( combinator( data ) )
