@@ -22,11 +22,12 @@ while True:
 
         prod_store = 20
         products = tds.createTestProducts( "testProducts", prod_store )        
-
+        a = []
         for i in range( 0, prod_store ):
-            prf.getProduct( products[i], Money( randrange( 4_005, 54_045, 358 ) , "MDL")) #try to change logic for optional parameters
-
-#        prf.saveAll( tds.getTestProducts() )
+            a.append( prf.getProduct( products[i], Money( randrange( 4_005, 54_045, 358 ) , "MDL"))) #try to change logic for optional parameters
+ 
+        prf.saveAll(a)                         # save property products with his id's
+        prf.save( tds.getTestProducts() )   # save loading products with his id's
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
         
