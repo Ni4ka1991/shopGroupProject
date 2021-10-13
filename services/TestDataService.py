@@ -1,4 +1,5 @@
 from random import randint
+from random import randrange
 import json
 import requests 
 from models.Product import Product
@@ -56,8 +57,7 @@ class TestDataService:
 
         ## make a required count of products ###
         for i in range( 0, count ):        
-            products.append( combinator( data ) )
+            products.append( Product( 2, combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
         ## make a required count of products ###
-
         return products
 
