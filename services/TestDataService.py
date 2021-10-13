@@ -50,14 +50,15 @@ class TestDataService:
             ### combinator ###
             prod = companies[ randint( 0, ( len( companies )  - 1 ) ) ] + " " +\
                    models   [ randint( 0, ( len( models ) - 1 ) ) ] + " " +\
-                   series   [ randint( 0, ( len( series ) - 1 ) ) ] + " " +\
+                   series   [ randint( 0, ( len( series ) - 1 ) ) ] +\
                    str( randint( 201, 1034 ))
             return prod     
             ### combinator ###
 
         ## make a required count of products ###
         for i in range( 0, count ):        
-            products.append( Product( 2, combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
+            products.append( combinator( data ))
+#            products.append( Product( 2, combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
         ## make a required count of products ###
         return products
 

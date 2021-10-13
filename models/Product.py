@@ -10,7 +10,7 @@ class Product:
 
     def setId( self, id ):
         if type( id ) != int:
-            raise TypeError( "Id must be of type string" )
+            raise TypeError( "Id must be of type int" )
         self._id = id
  
     def getId( self ):
@@ -51,7 +51,8 @@ class ProductRepositoryFactory:
         self._products = []
 
     def getProduct( self, name, price ):
-        obj = Product( id, name, price )
+        _id = 0
+        obj = Product( _id, name, price )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
         self.save( obj )

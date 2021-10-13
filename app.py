@@ -9,7 +9,7 @@ from models.Money import *
 from models.Product import *
 from models.Currency import *
 from ui.index import *
-
+from random import randrange
 
 
 system ("clear")
@@ -19,8 +19,13 @@ while True:
     option = printOptions( "e-SHOP", MAIN_MENU ) #>>>> HW: need to do the check if printOption < max and > min
     
     if option == 1:
-        products = { '': 345 }
-        prf.getProduct() #try to change logic for optional parameters
+
+        prod_store = 20
+        products = tds.createTestProducts( "testProducts", prod_store )        
+
+        for i in range( 0, prod_store ):
+            prf.getProduct( products[i], Money( randrange( 4_005, 54_045, 358 ) , "MDL")) #try to change logic for optional parameters
+
 #        prf.saveAll( tds.getTestProducts() )
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
