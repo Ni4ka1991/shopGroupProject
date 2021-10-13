@@ -29,8 +29,10 @@ class TestDataService:
        
         return products
 
-    def createTestProducts( self, fileName ):
-        products = {}
+    def createTestProducts( self, fileName, count = 20 ):
+
+        products = []
+
         file = open( f"./data/{fileName}.json", "r" )
         data = json.loads( file.read() )
 
@@ -39,8 +41,18 @@ class TestDataService:
             prod = data.get( 'company' )[ randint( 0, len( 'company' ) - 1 ) ] + " " +\
                    data.get( 'model'   )[ randint( 0, len( 'model'   ) - 1 ) ] + " " +\
                    data.get( 'series'  )[ randint( 0, len( 'series'  ) - 1 ) ] +\
-                   str( randint( 201, 1034 )) 
+                   str( randint( 201, 1034 ))
+            print( len('company'), len('model'), len( 'series' ))
+            input( "hit Enter " ) 
             return prod     
 
-        return  combinator( data )
+#        for i in range( 0, 20 ):        
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+
+
+        return products
 
