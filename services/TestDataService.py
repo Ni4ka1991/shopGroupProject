@@ -34,12 +34,13 @@ class TestDataService:
         file = open( f"./data/{fileName}.json", "r" )
         data = json.loads( file.read() )
 
+
         def combinator( data ):
-            prod = data.get( 'company' )[ randint( 0, len( company ) - 1 ) ] + " " +\
-                   data.get( 'model' )[ randint( 0, len( model ) - 1 ) ] + " " +\
-                   data.get( 'series' )[ randint( 0, len( series ) - 1 ) ] +\
+            prod = data.get( 'company' )[ randint( 0, len( 'company' ) - 1 ) ] + " " +\
+                   data.get( 'model'   )[ randint( 0, len( 'model'   ) - 1 ) ] + " " +\
+                   data.get( 'series'  )[ randint( 0, len( 'series'  ) - 1 ) ] +\
                    str( randint( 201, 1034 )) 
-            return prod      
-        
-        return combinator( data )
+            return prod     
+
+        return  combinator( data )
 
