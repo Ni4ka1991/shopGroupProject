@@ -38,15 +38,21 @@ class TestDataService:
 
 
         def combinator( data ):
-            prod = data.get( 'company' )[ randint( 0, len( 'company' ) - 1 ) ] + " " +\
-                   data.get( 'model'   )[ randint( 0, len( 'model'   ) - 1 ) ] + " " +\
-                   data.get( 'series'  )[ randint( 0, len( 'series'  ) - 1 ) ] +\
+            companies = data.get( 'company')
+            models    = data.get( 'model' )
+            series    = data.get( 'series' )
+
+
+            prod = companies[ randint( 0, 8 ) ] + " " +\
+                   models   [ randint( 0, 8 ) ] + " " +\
+                   series   [ randint( 0, 8 ) ] +\
                    str( randint( 201, 1034 ))
-            print( len('company'), len('model'), len( 'series' ))
-            input( "hit Enter " ) 
             return prod     
 
 #        for i in range( 0, 20 ):        
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
+        products.append( combinator( data ) )
         products.append( combinator( data ) )
         products.append( combinator( data ) )
         products.append( combinator( data ) )
