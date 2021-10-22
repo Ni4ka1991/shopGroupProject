@@ -20,16 +20,9 @@ while True:
     
     if option == 1:
 
-        a = tds.createTestProducts( "testProducts", 12 )             # save property products from json file with his id's
-        print( a )
-        print( type( a ) )
-        input( "hit Enter ... " )
-        c = [ 1, 2, 3, 4 ]
-        b = prf.saveAll( c )
-        print( b )
-        input( "hit Enter ... " )
-        
-        prf.save( tds.getTestProducts() )                                # save loading products with his id's
+        prf.saveAll( tds.createTestProducts( "testProducts", 12 ) )            # save 12 products from json file with his  property id's
+        prf.save( tds.getTestProducts() )                                      # save loading products with his external id's
+
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
         
