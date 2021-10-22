@@ -67,7 +67,7 @@ class ProductRepositoryFactory:
     def all( self ):
         return tuple( self._products )
 
-    def findById( self, id ):
+    def findById( self, _id ):
         for p in self._products: 
-            if p._id == id:
+            if p._id == _id:
                 return p
