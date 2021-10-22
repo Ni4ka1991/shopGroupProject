@@ -15,9 +15,9 @@ from ui.index import *
 
 system ("clear")
 
-tds = TestDataService()
-dic = tds.createTestProducts( "testProducts" )
-print(dic)
+#tds = TestDataService()
+my_prod_list = tds.createTestProducts( "testProducts" )
+print( my_prod_list )
 
 
 
