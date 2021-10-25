@@ -23,12 +23,14 @@ while True:
         
         prf.save( tds.getTestProducts( 2 ) )
         input( "hit" )
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 88453455, "MDL" ) ) )
+#        prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 88453455, "MDL" ) )
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
+#        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
 #        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
 #        prf.saveAll( tds.createTestProducts( "testProducts", 12 ) )            # save 12 products from json file with his  property id's
 #        prf.save( tds.getTestProducts( 2 ) )                                      # save loading products with his external id's
 
-#        printItems( "Catalog of products", prf.all() )
+        printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
         
         if answer == "y":

@@ -55,7 +55,7 @@ class ProductRepositoryFactory:
         obj = Product( _id, name, price )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
-        self.save( obj )
+#        self.save( obj )
         return obj
 
     def save( self, product ):
