@@ -20,7 +20,9 @@ while True:
     
     if option == 1:
 
-        prf.saveAll( tds.createTestProducts( "testProducts", 12 ) )            # save 12 products from json file with his  property id's
+
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 23455, "MDL" ) ) )
+#        prf.saveAll( tds.createTestProducts( "testProducts", 12 ) )            # save 12 products from json file with his  property id's
         prf.save( tds.getTestProducts() )                                      # save loading products with his external id's
 
         printItems( "Catalog of products", prf.all() )

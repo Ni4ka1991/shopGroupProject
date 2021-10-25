@@ -56,8 +56,9 @@ class TestDataService:
             ### combinator ###
 
         ## make a required count of products ###
-        for i in range( 0, count ):        
-            products.append( Product( i + 1 , combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
+#        for i in range( 0, count ):        
+#            products.append( Product( i + 1 , combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
+#            products.append( combinator( data ) )
         ## make a required count of products ###
-        return products
+        return combinator( data )
 
