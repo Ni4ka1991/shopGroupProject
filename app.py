@@ -20,8 +20,11 @@ while True:
     
     if option == 1:
 
-
-        prf.save( tds.getTestProducts( 2 ) )                                      # save loading products with his external id's
+        
+        a =  tds.getTestProducts( 2 )
+        print( a )               
+        prf.save( a )
+        input( "hit Enetr" )                                    # save loading products with his external id's
         prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 23455, "MDL" ) ) )
 #        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 88453455, "MDL" ) ) )
 #        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
