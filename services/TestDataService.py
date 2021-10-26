@@ -30,7 +30,7 @@ class TestDataService:
        
         return products
 
-    def createTestProducts( self, fileName, count = 20 ):
+    def createTestProducts( self, fileName ):
 
         products = []
         
@@ -55,10 +55,5 @@ class TestDataService:
             return prod     
             ### combinator ###
 
-        ## make a required count of products ###
-#        for i in range( 0, count ):        
-#            products.append( Product( i + 1 , combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
-#            products.append( combinator( data ) )
-        ## make a required count of products ###
         return combinator( data )
 

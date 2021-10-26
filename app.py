@@ -23,11 +23,8 @@ while True:
         
         prf.save( tds.getTestProducts( 2 ) )
         input( "hit" )
-#        prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 88453455, "MDL" ) )
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
-#        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
-#        prf.save( prf.getProduct( tds.createTestProducts( "testProducts", 12  ), Money( 6789905, "MDL" ) ) )
-#        prf.saveAll( tds.createTestProducts( "testProducts", 12 ) )            # save 12 products from json file with his  property id's
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ) ) )
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 2536708, "MDL" ) ) )
 #        prf.save( tds.getTestProducts( 2 ) )                                      # save loading products with his external id's
 
         printItems( "Catalog of products", prf.all() )
