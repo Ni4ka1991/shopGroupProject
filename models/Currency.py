@@ -1,5 +1,6 @@
 # Currency.py module
 
+test_test_var = 3456
 class Currency:
     
     def __init__(self, _id, _code, _nominal, _rate ):

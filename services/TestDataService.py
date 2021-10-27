@@ -5,7 +5,7 @@ import requests
 from models.Product import Product
 from models.Money import Money
 
-
+test_var = 123
 class TestDataService:
     
     def getTestProducts( self, count = 20 ):

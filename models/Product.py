@@ -1,7 +1,10 @@
 from .Money import *
-from services.TestDataService import *
+from ../services.TestDataService import *
+from .Currency import *
 
 
+print( test_var )
+input( "hit" )
 
 class Product:
     def __init__( self, _id, _name, _price ):
@@ -53,6 +56,8 @@ class ProductRepositoryFactory:
 
     def getProduct( self, name, price, count = 10 ):
         _id = 0
+        print( test_var )
+        input( "hit" )
         name = tds.createTestProducts( "testProducts" )
         for i in range( 0, count ):
             obj = Product( _id, name, price )
