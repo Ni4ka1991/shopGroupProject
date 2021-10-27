@@ -54,6 +54,9 @@ class TestDataService:
                    str( randint( 201, 1034 ))
             return prod     
             ### combinator ###
+            
+#            for i in range( 0, count ):        
+#                products.append( Product( i + 1 , combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
 
         return combinator( data )
 
