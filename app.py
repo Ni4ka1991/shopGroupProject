@@ -21,11 +21,12 @@ while True:
     if option == 1:
 
         
-        prf.save( tds.getTestProducts( 2 ) )
-        input( "hit" )
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ) ) )
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 2536708, "MDL" ) ) )
-#        prf.save( tds.getTestProducts( 2 ) )                                      # save loading products with his external id's
+#        prf.save( tds.getTestProducts( 2 ) )
+
+
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ), 2 ) )
+#        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 2536708, "MDL" ) ) )
+
 
         printItems( "Catalog of products", prf.all() )
         answer = input( "\nAdd to cart? (type y or n)\n >>> " )
