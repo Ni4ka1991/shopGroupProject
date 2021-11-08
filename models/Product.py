@@ -1,7 +1,7 @@
 from .Money import *
 #from service.TestDataService import *
 from .Currency import *
-
+from os import system
 
 #print( test_var )
 #input( "hit" )
@@ -59,12 +59,15 @@ class ProductRepositoryFactory:
         obj = Product( _id, name, price )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
-#        self._products.append( obj )
         self.save( obj )
         return self._products
 
     def save( self, product ):
+        print( len( self._products ) )
+        input( "hit enter ... " )
         self._products.append( product )
+        print( len( self._products ) )
+        input( "hit enter ... " )
 
     def saveAll( self, products ):
         self._products = products
