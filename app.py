@@ -24,7 +24,8 @@ while True:
 #        prf.save( tds.getTestProducts( 2 ) )
 
 
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ), 2 ) )
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ) ) )
+        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 205, "USD" ) ) )
 #        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 2536708, "MDL" ) ) )
 
 
