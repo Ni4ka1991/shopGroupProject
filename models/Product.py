@@ -64,7 +64,7 @@ class ProductRepositoryFactory:
 
     def save( self, product ):
         print( f"Look here. Here your var product => {product}" )
-        print( len( self._products ) )
+        print( f"Here you can see a len of _products => {len( self._products )}" )
         input( "hit enter ... at next step  we will append product to _products" )
         self._products.append( product )
 #        print( f"Look here. Here your var product => {product}" )
