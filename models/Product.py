@@ -59,14 +59,15 @@ class ProductRepositoryFactory:
         obj = Product( _id, name, price )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
-#        self.save( obj )
+        self.save( obj )
         return self._products
 
     def save( self, product ):
         print( f"Look here. Here your var product => {product}" )
         print( len( self._products ) )
-        input( "hit enter ... " )
+        input( "hit enter ... at next step  we will append product to _products" )
         self._products.append( product )
+#        print( f"Look here. Here your var product => {product}" )
         print( len( self._products ) )
         input( "hit enter ... " )
 
