@@ -1,7 +1,10 @@
 from .Money import *
-from services.TestDataService import *
+#from service.TestDataService import *
+from .Currency import *
+from os import system
 
-
+#print( test_var )
+#input( "hit" )
 
 class Product:
     def __init__( self, _id, _name, _price ):
@@ -51,19 +54,20 @@ class ProductRepositoryFactory:
         self._lastCreatedId = 0
         self._products = []
 
-    def getProduct( self, name, price, count = 10 ):
+    def getProduct( self, name, price ):
         _id = 0
-        name = tds.createTestProducts( "testProducts" )
-        for i in range( 0, count ):
-            obj = Product( _id, name, price )
-            self._lastCreatedId += 1
-            obj._id = self._lastCreatedId
-            self._products.append( obj )
-#            self.save( obj )
+        obj = Product( _id, name, price )
+        self._lastCreatedId += 1
+        obj._id = self._lastCreatedId
+        self.save( obj )
         return self._products
 
     def save( self, product ):
+        print( len( self._products ) )
+        input( "hit enter ... " )
         self._products.append( product )
+        print( len( self._products ) )
+        input( "hit enter ... " )
 
     def saveAll( self, products ):
         self._products = products
