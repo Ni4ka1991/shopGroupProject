@@ -54,13 +54,14 @@ class ProductRepositoryFactory:
         self._lastCreatedId = 0
         self._products = []
 
-    def getProduct( self, name, price ):
-        _id = 0
-        obj = Product( _id, name, price )
-        self._lastCreatedId += 1
-        obj._id = self._lastCreatedId
-        self.save( obj )
-        return self._products
+    def getProduct( self, name, price, external_id = None ):
+        if external_id == None:
+            _id = 0
+            obj = Product( _id, name, price )
+            self._lastCreatedId += 1
+            obj._id = self._lastCreatedId
+#            self.save( obj )
+            return self._products
 
     def save( self, product ):
         print( f"Look here. Here your var product => {product}" )

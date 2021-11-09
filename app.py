@@ -21,12 +21,11 @@ while True:
     if option == 1:
 
         
-#        prf.save( tds.getTestProducts( 2 ) )
-
-
-#        prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 6789905, "MDL" ) )
-        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 205, "USD" ) ) )
-#        prf.save( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( 2536708, "MDL" ) ) )
+        prf.saveAll( tds.getTestProducts( 2 ) )                                                         # download some products -> add them to list _products  without view
+        
+        for i in range( 0, 3 ):
+#            prf.saveAll( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( i * 23, "USD" ) ) )  # create one  product, view him, add to list _products 
+            prf.getProduct( tds.createTestProducts( "testProducts" ), Money( ( i + 1 ) * 23, "USD" ) )  # create one  product, view him, add to list _products 
 
 
         printItems( "Catalog of products", prf.all() )
