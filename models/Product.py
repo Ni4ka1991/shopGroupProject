@@ -7,7 +7,7 @@ from os import system
 #input( "hit" )
 
 class Product:
-    def __init__( self, _id, _name, _price ):
+    def __init__( self, _id, _name, _price, external_id ):
         self.setId( _id )
         self.setName( _name )        
         self.setPrice( _price )
@@ -43,7 +43,9 @@ class Product:
         return f"\n " \
                f"Product ID: {self._id}\n " \
                f"Name:{self._name}\n" \
-               f"Price:{self._price}\n"
+               f"Price:{self._price}\n"\
+               f"External_ID:{self.external_id}\n"
+               
                             
     def __repr__( self ):
         return str( self )
@@ -54,14 +56,13 @@ class ProductRepositoryFactory:
         self._lastCreatedId = 0
         self._products = []
 
-    def getProduct( self, name, price, external_id = None ):
-        if external_id == None:
-            _id = 0
-            obj = Product( _id, name, price )
-            self._lastCreatedId += 1
-            obj._id = self._lastCreatedId
-#            self.save( obj )
-            return self._products
+    def getProduct( self, name, price ):
+        _id = 0
+        obj = Product( _id, name, price, 666 )
+        self._lastCreatedId += 1
+        obj._id = self._lastCreatedId
+        self.save( obj )
+        return self._products
 
     def save( self, product ):
         print( f"Look here. Here your var product => {product}" )
