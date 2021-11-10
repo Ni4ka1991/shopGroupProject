@@ -19,10 +19,11 @@ system ("clear")
 #my_prod_list = tds.createTestProducts( "testProducts" )
 #print( my_prod_list )
 
-a = prf.getProduct( "bbb", Money( 12, "USD" ) )
-print( a ) 
-
-
+#a = prf.getProduct( "bbb", Money( 12, "USD" ) )
+#print( a ) 
+for i in range( 0, 3 ):
+    a = tds.getTestProducts( )
+    print( a )
 
 
 

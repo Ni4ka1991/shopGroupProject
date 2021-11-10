@@ -19,16 +19,22 @@ class TestDataService:
             ##### Transformer ( json ---> {list of dictionaries [],[],[] } ---> extaction obj class Products one by one ---> create a list of obj-s #######            
 
             data = res.json()
-            for item in data:
-                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
-                products.append(product)
 
+
+
+            for item in data:
+                name = item[ "title" ]
+                external_id = item[ "id" ]
+                price = item[ "price" ]
+#                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
+#                products.append(product)
+#                return product
             ##### Transformer ###########################            
 
         else:
             raise Exeption( "Connection error!" )
        
-        return products
+#        return product
 
     def createTestProducts( self, fileName ):
 
