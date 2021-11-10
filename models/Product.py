@@ -7,7 +7,7 @@ from os import system
 #input( "hit" )
 
 class Product:
-    def __init__( self, _id, _name, _price, _external_id ):
+    def __init__( self, _id, _name, _price, _external_id = None ):
         self.setId( _id )
         self.setName( _name )        
         self.setPrice( _price )
@@ -67,7 +67,7 @@ class ProductRepositoryFactory:
 
     def getProduct( self, name, price ):
         _id = 0
-        obj = Product( _id, name, price, 444 )
+        obj = Product( _id, name, price )
         self._lastCreatedId += 1
         obj._id = self._lastCreatedId
         self.save( obj )

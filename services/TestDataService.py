@@ -32,8 +32,6 @@ class TestDataService:
 
     def createTestProducts( self, fileName ):
 
-        products = []
-        
         ## load data #######
         file = open( f"./data/{fileName}.json", "r" )
         data = json.loads( file.read() )
@@ -55,8 +53,5 @@ class TestDataService:
             return prod     
             ### combinator ###
             
-#            for i in range( 0, count ):        
-#                products.append( Product( i + 1 , combinator( data ), Money( randrange( 4_000, 24_001, 100 ), "MDL ") ))
-
         return combinator( data )
 

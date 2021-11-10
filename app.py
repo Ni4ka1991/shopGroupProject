@@ -26,6 +26,7 @@ while True:
         for i in range( 0, 3 ):
 #            prf.saveAll( prf.getProduct( tds.createTestProducts( "testProducts" ), Money( i * 23, "USD" ) ) )  # create one  product, view him, add to list _products 
             prf.getProduct( tds.createTestProducts( "testProducts" ), Money( ( i + 1 ) * 23, "USD" ) )  # create one  product, view him, add to list _products 
+            prf.getProduct( tds.getTestProducts( 2 ) ) 
 
 
         printItems( "Catalog of products", prf.all() )
