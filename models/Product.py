@@ -7,10 +7,11 @@ from os import system
 #input( "hit" )
 
 class Product:
-    def __init__( self, _id, _name, _price ):
+    def __init__( self, _id, _name, _price, _external_id = None ):
         self.setId( _id )
         self.setName( _name )        
         self.setPrice( _price )
+        self.setExternalId ( _external_id )
 
     def setId( self, id ):
         if type( id ) != int:
@@ -38,12 +39,22 @@ class Product:
 
     def getPrice( self ):
         return self._price
+    
+    def setExternalId( self, eid ):
+        if type( eid ) != int:
+            raise TypeError( "Id must be of type int" )
+        self._external_id = eid
+ 
+    def getExternalId( self ):
+        return self._external_id
        
     def __str__( self ):
         return f"\n " \
                f"Product ID: {self._id}\n " \
                f"Name:{self._name}\n" \
-               f"Price:{self._price}\n"
+               f"Price:{self._price}\n"\
+               f"External_ID:{self._external_id}\n"
+               
                             
     def __repr__( self ):
         return str( self )
