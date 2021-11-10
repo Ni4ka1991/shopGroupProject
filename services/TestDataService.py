@@ -20,7 +20,7 @@ class TestDataService:
 
             data = res.json()
             for item in data:
-                product = Product( 999, item["title"], Money( item["price"], "USD" ), item["id"])
+                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
                 products.append(product)
 
             ##### Transformer ###########################            
