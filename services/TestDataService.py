@@ -1,6 +1,7 @@
 from random import randint
 from random import randrange
 import json
+import os
 import requests 
 from models.Product import Product
 from models.Money import Money
@@ -19,13 +20,23 @@ class TestDataService:
             ##### Transformer ( json ---> {list of dictionaries [],[],[] } ---> extaction obj class Products one by one ---> create a list of obj-s #######            
 
             data = res.json()
-
-
-
             for item in data:
-                name = item[ "title" ]
-                external_id = item[ "id" ]
-                price = item[ "price" ]
+                print( item )
+                print()
+#            file_name = "load_data.json"
+#            full_file = os.path.join( "data", file_name )
+            
+#            if ( os.path.exist( full_file ) == True ):
+#                os.remove( full_file )
+            
+#            open( full_file, "wb" ).write( res.content ) 
+
+#            for item in data:
+#                name = item[ "title" ]
+#                external_id = item[ "id" ]
+#                price = item[ "price" ]
+#                a = external_id
+#                return a
 #                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
 #                products.append(product)
 #                return product
@@ -33,8 +44,8 @@ class TestDataService:
 
         else:
             raise Exeption( "Connection error!" )
-       
-#        return product
+
+#        return data
 
     def createTestProducts( self, fileName ):
 
