@@ -15,37 +15,20 @@ class TestDataService:
         products = []
         
         if res.status_code == 200:
-#                                   .json method
-#                                     V
-            ##### Transformer ( json ---> {list of dictionaries [],[],[] } ---> extaction obj class Products one by one ---> create a list of obj-s #######            
 
-            data = res.json()
-            for item in data:
-                print( item )
-                print()
-#            file_name = "load_data.json"
-#            full_file = os.path.join( "data", file_name )
+            data = res.json()                                  # save load data in var "data"
+            file_name = "external_items.json"                  # create a var file_name with type str
+            full_file = os.path.join( "data", file_name )      # create a var full_file, that concatenates path components data-directory and file_name-var 
             
-#            if ( os.path.exist( full_file ) == True ):
-#                os.remove( full_file )
-            
-#            open( full_file, "wb" ).write( res.content ) 
+            if( os.path.exist(full_file) == True ):
+                os.remove( full_file )
 
-#            for item in data:
-#                name = item[ "title" ]
-#                external_id = item[ "id" ]
-#                price = item[ "price" ]
-#                a = external_id
-#                return a
-#                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
-#                products.append(product)
-#                return product
-            ##### Transformer ###########################            
+            open( "data/external_items.json", "w" )            # create a file. Writing mod
+
 
         else:
             raise Exeption( "Connection error!" )
 
-#        return data
 
     def createTestProducts( self, fileName ):
 
