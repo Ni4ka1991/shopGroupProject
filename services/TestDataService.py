@@ -17,14 +17,16 @@ class TestDataService:
         if res.status_code == 200:
 
             data = res.json()                                  # save load data in var "data"
-            file_name = "external_items.json"                  # create a var file_name with type str
-            full_file = os.path.join( "data", file_name )      # create a var full_file, that concatenates path components data-directory and file_name-var 
-            
-            if( os.path.exist(full_file) == True ):
-                os.remove( full_file )
 
-            open( "data/external_items.json", "w" )            # create a file. Writing mod
-
+            for item in data:
+                item[ "external_id" ] = item["id"]              #create a new key external_id with value of id or in one line ->>> item["external_id"] = item.pop("id")
+                item.pop( "id" )                                #delite key "id"  and his value
+                item["name"] = item.pop("title")
+                item.pop( "description" )
+                item.pop( "category" )
+                item.pop( "rating" )
+                item.pop( "image" )
+            return data
 
         else:
             raise Exeption( "Connection error!" )
