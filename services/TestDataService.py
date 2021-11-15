@@ -15,37 +15,22 @@ class TestDataService:
         products = []
         
         if res.status_code == 200:
-#                                   .json method
-#                                     V
-            ##### Transformer ( json ---> {list of dictionaries [],[],[] } ---> extaction obj class Products one by one ---> create a list of obj-s #######            
 
-            data = res.json()
+            data = res.json()                                  # save load data in var "data"
+
             for item in data:
-                print( item )
-                print()
-#            file_name = "load_data.json"
-#            full_file = os.path.join( "data", file_name )
-            
-#            if ( os.path.exist( full_file ) == True ):
-#                os.remove( full_file )
-            
-#            open( full_file, "wb" ).write( res.content ) 
-
-#            for item in data:
-#                name = item[ "title" ]
-#                external_id = item[ "id" ]
-#                price = item[ "price" ]
-#                a = external_id
-#                return a
-#                product = Product( 000, item["title"], Money( item["price"], "USD" ), item["id"])
-#                products.append(product)
-#                return product
-            ##### Transformer ###########################            
+                item[ "external_id" ] = item["id"]              #create a new key external_id with value of id or in one line ->>> item["external_id"] = item.pop("id")
+                item.pop( "id" )                                #delite key "id"  and his value
+                item["name"] = item.pop("title")
+                item.pop( "description" )
+                item.pop( "category" )
+                item.pop( "rating" )
+                item.pop( "image" )
+            return data
 
         else:
             raise Exeption( "Connection error!" )
 
-#        return data
 
     def createTestProducts( self, fileName ):
 
