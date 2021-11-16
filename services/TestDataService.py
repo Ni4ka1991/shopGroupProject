@@ -26,7 +26,7 @@ class TestDataService:
                 item.pop( "category" )
                 item.pop( "rating" )
                 item.pop( "image" )
-            return data
+#            return data
 
             file_name = "external_items.json"                  # create a var file_name with type str
             full_file = os.path.join( "data", file_name )      # create a var full_file, that concatenates path components data-directory and file_name-var 
@@ -34,9 +34,8 @@ class TestDataService:
             if( os.path.isfile( full_file ) == True ):
                 os.remove( full_file )
 
-            bu-bu-bu = { "a":1,"b":2 }
             with open( full_file, "w" ) as outfile:
-                json.dump( bu-bu-bu, outfile )
+                json.dump( data, outfile )
 
 
         else:
